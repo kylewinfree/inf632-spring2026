@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=latex 2024.10.1)  11 DEC 2025 14:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=latex 2024.11.21)  13 JAN 2026 09:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -324,35 +324,40 @@ Package hyperref Info: Link coloring OFF on input line 23.
 \openout3 = `syllabus.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 45.
+(Font)              <10.95> on input line 50.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 45.
+(Font)              <8> on input line 50.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 45.
+(Font)              <6> on input line 50.
 File: kyle.eps Graphic file (type eps)
  <kyle.eps>
-Overfull \hbox (10.06947pt too wide) in paragraph at lines 50--59
+Overfull \vbox (30.87332pt too high) detected at line 51
+ []
+
+
+Overfull \hbox (8.84988pt too wide) in paragraph at lines 50--59
 [][]
  []
 
 [1
 
-] [2]
+] (./ugslos.tex) (./gslos.tex) [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 94.
+(Font)              <9> on input line 82.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 94.
- [3] [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 231--233
+(Font)              <5> on input line 82.
+ (./grading.tex) [3] [4] [5] [6]
+(./schedule.tex
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--255
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
 
  []
 
-[7] (./syllabus.aux)
+) [7] (./syllabus.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -361,12 +366,12 @@ Package rerunfilecheck Info: File `syllabus.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 8732 strings out of 474223
- 136200 string characters out of 5748759
+ 8762 strings out of 474223
+ 136672 string characters out of 5748758
  1937972 words of memory out of 5000000
- 30895 multiletter control sequences out of 15000+600000
- 565210 words of font info for 60 fonts, out of 8000000 for 9000
+ 30914 multiletter control sequences out of 15000+600000
+ 565042 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,79p,1121b,604s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on syllabus.dvi (7 pages, 39028 bytes).
+Output written on syllabus.dvi (7 pages, 39456 bytes).

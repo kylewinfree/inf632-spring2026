@@ -9,6 +9,7 @@ directories=(
     "homework-1"
     "homework-2"
     "homework-3"
+    "lecture-1-introduction"
 )
 
 # Let's instead just add all directories, assuming that there is a latex file in each
@@ -28,11 +29,17 @@ for dir in "${directories[@]}"; do
             echo "Running LaTeX on $tex_file"
             # I generally don't want author names to be saved forever in my main dictionary file.  So, instead, let's use a project specific personal dictionary file.
             aspell check -p ./dict.txt "$tex_file"
-            latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
-            # and run twice more to make sure that refs generate correctly
-            latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
-            latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
-            ps2pdf "${tex_file%.tex}.ps" "${tex_file%.tex}.pdf"
+            # Extract the base name of the .tex file and the directory name
+            base_name=$(basename "$tex_file" .tex)
+            dir_name=$(basename "$dir")
+            # Check if the tex_file name matches the directory name, added this once I moved the grading and schedule into their own tex file so I could include (\input) them from other docs too.
+            if [[ "$base_name" == "$dir_name" ]]; then
+                latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
+                # and run twice more to make sure that refs generate correctly
+                latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
+                latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
+                ps2pdf "${tex_file%.tex}.ps" "${tex_file%.tex}.pdf"
+            fi
             
             # Move PDFs to the appropriate folder
             echo "PDFs created in $dir:"
