@@ -1,6 +1,9 @@
-personal_ws-1.1 en 12 
+personal_ws-1.1 en 15 
+Cyber
 EE
 FAC
+HCI
+HD
 Marburg
 Winfree
 bg
