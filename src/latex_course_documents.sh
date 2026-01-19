@@ -10,6 +10,7 @@ directories=(
     "homework-2"
     "homework-3"
     "lecture-1-introduction"
+    "lecture-2-dimensions-of-functionality"
 )
 
 # Let's instead just add all directories, assuming that there is a latex file in each
@@ -34,17 +35,20 @@ for dir in "${directories[@]}"; do
             dir_name=$(basename "$dir")
             # Check if the tex_file name matches the directory name, added this once I moved the grading and schedule into their own tex file so I could include (\input) them from other docs too.
             if [[ "$base_name" == "$dir_name" ]]; then
-                latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
-                # and run twice more to make sure that refs generate correctly
-                latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
-                latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
-                ps2pdf "${tex_file%.tex}.ps" "${tex_file%.tex}.pdf"
+                pdflatex "$tex_file"
+#                 latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
+#                 # and run twice more to make sure that refs generate correctly
+                pdflatex "$tex_file"
+                pdflatex "$tex_file"
+#                 latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
+#                 latex "$tex_file" && dvips "${tex_file%.tex}.dvi" -o "${tex_file%.tex}.ps"
+#                 ps2pdf "${tex_file%.tex}.ps" "${tex_file%.tex}.pdf"
             fi
             
             # Move PDFs to the appropriate folder
             echo "PDFs created in $dir:"
             ls -1 *.pdf
-            mv *.pdf ../../
+            mv "${tex_file%.tex}.pdf" ../../
             echo "PDF moved to the root git directory."
             
             # Clean up intermediate files

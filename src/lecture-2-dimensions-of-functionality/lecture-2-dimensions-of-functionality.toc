@@ -1,0 +1,16 @@
+\beamer@sectionintoc {1}{Dimensions of Functionality}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Axes}{2}{0}{1}
+\beamer@sectionintoc {2}{Early Examples}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{Rivet Glasses}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{Countess of Lovelace}{8}{0}{2}
+\beamer@subsectionintoc {2}{3}{Roulette}{9}{0}{2}
+\beamer@sectionintoc {3}{``Recent'' Examples}{10}{0}{3}
+\beamer@subsectionintoc {3}{1}{Computing on the Wrist}{10}{0}{3}
+\beamer@subsectionintoc {3}{2}{Environmental Sensing}{11}{0}{3}
+\beamer@subsectionintoc {3}{3}{Human Sensing}{12}{0}{3}
+\beamer@sectionintoc {4}{More Examples}{13}{0}{4}
+\beamer@subsectionintoc {4}{1}{Fashion}{13}{0}{4}
+\beamer@subsectionintoc {4}{2}{Communication}{14}{0}{4}
+\beamer@subsectionintoc {4}{3}{Mobility}{15}{0}{4}
+\beamer@subsectionintoc {4}{4}{Implantables}{17}{0}{4}
+\beamer@sectionintoc {5}{Dimensioning Examples}{19}{0}{5}

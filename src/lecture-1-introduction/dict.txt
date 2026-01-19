@@ -1,8 +1,9 @@
-personal_ws-1.1 en 36 
+personal_ws-1.1 en 38 
 Astrogeology
 Biomechanics
 Cyber
 Dimensioning
+EE
 EMG
 FAC
 Fitbit
@@ -18,6 +19,7 @@ Sensole
 UG
 Winfree
 accelerometer
+bg
 compat
 dateplot
 eps

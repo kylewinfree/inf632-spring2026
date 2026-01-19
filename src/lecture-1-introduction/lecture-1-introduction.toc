@@ -1,0 +1,22 @@
+\beamer@sectionintoc {1}{Wearable Informatics}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Defined: Wearable}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Defined: Informatics}{3}{0}{1}
+\beamer@subsectionintoc {1}{3}{Defined: Information}{4}{0}{1}
+\beamer@subsectionintoc {1}{4}{Defined}{5}{0}{1}
+\beamer@subsectionintoc {1}{5}{Popularity}{6}{0}{1}
+\beamer@subsectionintoc {1}{6}{Why?}{8}{0}{1}
+\beamer@subsectionintoc {1}{7}{Current Headlines}{10}{0}{1}
+\beamer@sectionintoc {2}{Course Overview}{11}{0}{2}
+\beamer@subsectionintoc {2}{1}{Course Objectives}{11}{0}{2}
+\beamer@subsubsectionintoc {2}{1}{1}{Undergraduate}{11}{0}{2}
+\beamer@subsubsectionintoc {2}{1}{2}{Graduate}{12}{0}{2}
+\beamer@subsectionintoc {2}{2}{Instructor}{13}{0}{2}
+\beamer@sectionintoc {3}{The Syllabus}{19}{0}{3}
+\beamer@subsectionintoc {3}{1}{Canvas and Git}{19}{0}{3}
+\beamer@subsectionintoc {3}{2}{Course Materials}{20}{0}{3}
+\beamer@subsectionintoc {3}{3}{Grading}{21}{0}{3}
+\beamer@subsectionintoc {3}{4}{Participation Matters!}{22}{0}{3}
+\beamer@subsectionintoc {3}{5}{Office Hours}{23}{0}{3}
+\beamer@subsectionintoc {3}{6}{Schedule}{24}{0}{3}
+\beamer@sectionintoc {4}{Class Composition and Goals}{25}{0}{4}
+\beamer@subsectionintoc {4}{1}{Who are you?}{25}{0}{4}
