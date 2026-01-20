@@ -11,6 +11,10 @@ directories=(
     "homework-3"
     "lecture-1-introduction"
     "lecture-2-dimensions-of-functionality"
+    "lecture-3-haptics"
+    "lecture-4-data-and-analysis"
+    "lecture-5-agreements-correlations-regression"
+    "research-project"
 )
 
 # Let's instead just add all directories, assuming that there is a latex file in each
