@@ -1,0 +1,350 @@
+ % Document settings
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{pdflscape}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{booktabs}
+\pagestyle{plain}
+\setlength\parindent{0pt}
+
+\begin{document}
+
+\Huge INF632 Research Project
+\normalsize ~
+
+\noindent\rule{\textwidth}{1pt}\vspace{.5em}
+
+\LARGE Build your Own Wearable / Analysis of Commodity Wearable Data
+\normalsize ~
+
+\section{Literature Review}
+\begin{description}
+	\item [Assigned:] February 10, 2026.
+	\item [Due:] February 24, 2026 at 11:59pm. Submissions turned in after this time and still within two weeks of this deadline will be automatically docked 50\% of the possible points.
+	\item [Submission:] Share a direct link to your repo / folder on \href{https://canvas.nau.edu}{canvas.nau.edu} by the deadline.
+	\item [Points:] EE499 students, this is worth 5\% of your final grade.  EE599 students, this is worth 10\% of your final grade.
+\end{description}
+
+\subsection*{Background:}
+Science is fundamentally rooted in the ongoing pursuit of knowledge, which is reflected in the existing literature. A thorough understanding of this body of work is essential for identifying gaps and formulating the pertinent questions that should be explored next. To effectively chart a course for further research, one must engage deeply with what has already been accomplished in the field. Failing to do so may lead to redundant efforts, essentially reiterating the findings of previous studies rather than contributing new insights. By critically analyzing existing literature, researchers can ensure that their work builds upon established knowledge, drives innovation, and addresses unanswered questions in the scientific community.
+% Science is driven by an understanding of the current state of knowledge (reflected in the literature) and the identification of what question(s) should be addressed/answered next. To have a clear idea of what direction one should take on a topic, one must know what has already been done (unless you like repeating other peoples work).
+
+\subsection*{Assignment:}
+This is the first of five assignments related to your class project. In this assignment, you need to identify papers related to your desired project. These should provide background and motivation for what you want to do within your project. Up to two can directly reflect what you want to do (for a class project, it is okay to repeat the work of others).
+
+At least three citations must be discussed in detail; others can be ``lightly'' reviewed.  Write a summary of the ``current state of the art'' related to your research project.  See the papers we have discussed and the ``extras'' to get a good feeling for what this section should look like. Make sure that you are clearly motivating the direction for your project from the literature you review.
+
+% add a picture like the screen shot with arrows in the pages version from 2017
+
+\subsection*{Expectations and Grading Rubric:}
+I expect your literature review to be complete, on the order of three to twelve paragraphs. You submission must use the IEEE JBHI Template (Grad must use \LaTeX, Undergrad may use the \LaTeX or Word template).
+
+On the topic of ethics, be sure that you have properly cited everything and have not plagerized anyone's work in your paper.  You may use a generative AI to help you revise paragraphs or to help with detailed guidance, but do NOT use it to write your paper.  You're here to learn - please go through the process of learning!
+
+Your submission will be graded as follows:
+
+\begin{landscape}
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{p{.6in} c | p{2.25in} | p{2.25in} | p{2.25in}}
+        \multirow{2}{*}{Area}  	& Frac. of   	& UG: Meets		& UG:Exceeds, G:Meets   & G:Exceeds 	  \\
+                                & Points & Expectations  & Expectations  		& Expectations \\
+        \toprule
+        Scope               	& 20\% 				& Some focus; misses key aspects or topics. & Mostly focused, addresses most key aspects. & Focused and addresses all key aspects. \\
+        \midrule
+        Sources                 & 20\%				& Uses some relevant sources; limited variety. 3-5 total. & Uses mostly high-quality and relevant sources. 5-7 total. & Uses diverse, high-quality, and relevant sources. 9 or more. \\
+        \midrule
+        Format                  & 10\%				& Some structure, but lacks coherence; unclear transitions. & Generally structured; some unclear transitions. & Well-structured with clear headings and transitions. \\
+        \midrule
+        Critical Analysis       & 20\%				& Basic analysis; limited synthesis of insights. & Good analysis; some synthesis of insights. & In-depth critical analysis and synthesis of literature. \\
+        \midrule
+        Reflection 		        & 15\%				& Limited reflection; few future research gaps identified. & Some reflection; identifies some future research gaps. & Meaningful reflection; identifies future research gaps. \\
+        \midrule
+        Writing Quality 		& 15\%				& Some clarity issues; several errors affect readability. & Mostly clear writing; few errors. & Clear, concise, and error-free writing. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{landscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Questions and Hypotheses}
+\begin{description}
+	\item [Assigned:] February 24, 2026. % the last lecture day of the first week.
+	\item [Due:] March 3, 2026 at 11:59pm. Submissions turned in after this time and still within two weeks of this deadline will be automatically docked 50\% of the possible points. % the last lecture day of the third week
+	\item [Submission:] Share a direct link to your repo / folder on \href{https://canvas.nau.edu}{canvas.nau.edu} by the deadline.
+	\item [Points:] EE499 students, this is worth 10\% of your final grade.  EE599 students, this is worth 10\% of your final grade.
+\end{description}
+
+\subsection*{Background:}
+Writing compelling research questions and hypotheses is a crucial step in the scientific inquiry process. These elements serve as the foundation for guiding investigations and shaping the direction of research. A well-crafted research question not only delineates the scope of the study but also establishes its relevance and significance within the broader context of the field. Formulating testable hypotheses provides a framework for empirical investigation, allowing researchers to make predictions that can be systematically examined. Together, thoughtful questions and hypotheses drive the research process, encouraging rigorous analysis and critical thinking. They also enable a clear articulation of the research objectives, fostering a deeper understanding of the underlying issues and facilitating discussions that may lead to transformative insights. In summary, skillfully articulating questions and hypotheses is essential for advancing knowledge and ensuring meaningful contributions to the scientific community.
+% The scientifc method is built on the concept of testable hypotheses. At this point, you have developed some interesting questions regarding your project. Now, it is time to build a hypothesis or set of hypotheses around your project.
+
+\subsection*{Assignment:}
+This is the second of the assignments related to your class project. In this assignment, you need to identify your hypotheses, aims, or objectives of your project. This is the ``what'' question or goal. You will need to develop, in one to three sentences, your primary hypothesis. This should be phrased in a testable format. Follow your hypothesis with expected and alternative results. Then identify at least two more secondary hypotheses, also outlining these like the first. Finally, explain how your project will allow you to investigate this question.
+
+Note, this should be motivated by your literature review.
+
+For example:
+\begin{enumerate}
+    \item[Hypothesis:] Community gait is statistically signi cantly more variable than gait observed in the controlled setting of a lab.
+    \item[Expected:] The data collected in the community setting through normal daily wear will show a higher degree of variability than that which we collect from a 10m walk test and timed up and go test in the lab setting.
+    \item[Alternative:] Though unanticipated, we may find that the clinical tests reflect a measure of variability also found in the community measures.
+    \item[Interpretation:] By developing a wearable goniometer, we will be able to assess the variability of normal gait in the community and clinical settings.
+\end{enumerate}
+
+% add a figure on the scientific method
+
+\subsection*{Expectations and Grading Rubric:}
+This section will probably be fairly small, a few paragraphs at most.  That is okay. This might be three to six paragraphs. I want you to focus on clearly articulating your objectives to me.
+
+Your submission must use the IEEE JBHI Template (Grad must use \LaTeX, Undergrad may use the \LaTeX or Word template) and must include your previous section, hopefully revised. In addition to the expectations for your objectives, I will be grading your previous section.  You should have feedback from the previous section, which should be integrated into that section, and will be graded as part of the overall writing quality of your work.
+
+\begin{landscape}
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{p{.6in} c | p{2.25in} | p{2.25in} | p{2.25in}}
+        \multirow{2}{*}{Area}  	& Frac. of   	& UG: Meets		& UG:Exceeds, G:Meets   & G:Exceeds 	  \\
+                                & Points & Expectations  & Expectations  		& Expectations \\
+        \toprule
+        Clarity of Questions	& 20\% 				& Some questions are vague or poorly defined. & Questions are mostly clear and specific, with minor ambiguities. & Questions are clear, specific, and well-defined. \\
+        \midrule
+        Relevance               & 20\%				& Some questions are relevant, while others are not. & Questions are generally relevant but may lack depth in relevance. & Questions are highly relevant to the research topic and field. \\
+        \midrule
+        Testability of Hypotheses & 20\%			& Some hypotheses are testable, but others lack clarity. & Hypotheses are mostly clear and testable, with minor issues. & Hypotheses are clear, testable, and grounded in existing literature. \\
+        \midrule
+        Alignment of Qs to Hs   & 20\%				& Some alignment exists, but connections are weak or unclear. & Good alignment, but some hypotheses may not directly address the questions. & Strong alignment; hypotheses effectively respond to research questions. \\
+        \midrule
+        Writing Quality 		& 20\%				& Some clarity issues; several errors affect readability. & Mostly clear writing; few errors. & Clear, concise, and error-free writing. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{landscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Device Design and Implementation}
+\begin{description}
+	\item [Assigned:] March 3, 2026.
+	\item [Due:] March 24, 2026 at 11:59pm. Submissions turned in after this time and still within two weeks of this deadline will be automatically docked 50\% of the possible points.
+	\item [Submission:] Share a direct link to your repo / folder on \href{https://canvas.nau.edu}{canvas.nau.edu} by the deadline.
+	\item [Points:] EE499 students, this is worth 5\% of your final grade.  EE599 students, this is worth 10\% of your final grade.
+\end{description}
+
+\subsection*{Background:}
+Device design and implementation encompass a critical phase in the development of innovative technologies, involving a meticulous blend of engineering principles, user-centered design, and practical application. This process begins with the identification of user needs and requirements, ensuring that the device effectively addresses real-world problems. Through iterative prototyping and testing, designers refine functional specifications, enhance usability, and optimize performance. The implementation phase translates these designs into functional products, involving the selection of appropriate materials, components, and manufacturing techniques. Effective collaboration across disciplines—such as electronics, software development, and ergonomic design—plays a vital role in creating devices that are not only functional but also intuitive and aesthetically pleasing. Ultimately, a successful design and implementation strategy results in devices that improve user experience, meet market demands, and advance technological innovation, significantly impacting various fields and industries.
+
+\subsection*{Assignment:}
+This is the third of the assignments related to your class project, and is predominately for your benefit. In this assignment, you need to sketch out (either with paper and pen/pencil, or in your favorite illustrating or schematic program) the wiring layout of your project. For example, how will your OpenLog connect to your Arduino? You'll need to at least have a TX-RX from the Arduino to the OpenLog, and then of course power and ground. Exactly what pin on the Arduino will be used for the TX? There is a default TX pin, but would it benefit you to use a software defined serial port to move the TX to another pin? By drawing everything out, this will give you the chance to identify what aspects require more thought.
+
+Most of you will have a few components linked together without the need for a voltage divider or switches. If you need those (ie: you are using a force sensitive resistor), let’s talk.
+
+Submit this homework as a digital file please, even if you are drawing out the schematic by hand. This also means that you can sketch out the schematic on a dry erase board and snap a picture!
+
+% and the schematic from RP3
+
+\subsection*{Expectations and Grading Rubric:}
+This section should also be short, and should lean on a schematic or a workflow diagram.  The writen aspects of this section should support that schematic or workflow diagram.
+
+\begin{landscape}
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{p{.6in} c | p{2.25in} | p{2.25in} | p{2.25in}}
+        \multirow{2}{*}{Area}  	& Frac. of   	& UG: Meets		& UG:Exceeds, G:Meets   & G:Exceeds 	  \\
+                           			    & Points & Expectations  & Expectations  		& Expectations \\
+        \toprule
+        Schematic / Workflow Quality & 30\% 				& Basic schematic/workflow; lacks detail or clarity in representation. & Good schematic/workflow; mostly accurate but may be less detailed. & Highly detailed and accurate schematic/workflow that clearly represents design and process. \\
+        \midrule
+        Clarity of Description  & 30\%				& Some description, but lacks key details regarding design or purpose. & Generally clear description with minor ambiguities; covers most aspects. & Detailed and clear description of device design, including purpose and functionality. \\
+        \midrule
+        Justification of Choices & 20\%				& Limited explanation of design choices; few, if any, references. & Good justification of most design choices; some references to literature. & Comprehensive explanation of design choices, supported by relevant literature or examples. \\
+        \midrule
+        Writing Quality 		& 20\%				& Some clarity issues; several errors affect readability. & Mostly clear writing; few errors. & Clear, concise, and error-free writing. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{landscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods Plan}
+\begin{description}
+	\item [Assigned:] March 24, 2026. % the last lecture day of the first week.
+	\item [Due:] March 31, 2026 at 11:59pm. Submissions turned in after this time and still within two weeks of this deadline will be automatically docked 50\% of the possible points. % the last lecture day of the third week
+	\item [Submission:] Share a direct link to your repo / folder on \href{https://canvas.nau.edu}{canvas.nau.edu} by the deadline.
+	\item [Points:] EE499 students, this is worth 5\% of your final grade.  EE599 students, this is worth 5\% of your final grade.
+\end{description}
+
+\subsection*{Background:}
+Writing a methods plan is a crucial step in the research process, as it outlines the systematic approach that will be taken to investigate a specific research question or hypothesis. A well-structured methods plan details the research design, including the selection of participants, data collection techniques, and analytical strategies, ensuring that the study is both feasible and scientifically sound. By clearly defining procedures for data collection and analysis, the methods plan serves as a roadmap, guiding researchers through the execution of the study and facilitating reproducibility. It also addresses potential ethical considerations, including the treatment of participants and data integrity. Furthermore, a comprehensive methods plan allows researchers to anticipate challenges and develop contingency measures, ultimately enhancing the reliability and validity of the study findings. In essence, an effective methods plan lays the groundwork for a robust research project, ensuring rigorous execution and meaningful contributions to the field.
+%Now that you have a project well defined, in aspects of the measurement device and a core testable hypothesis, we need to consider exactly what data you will collect, and how. You should also have a good idea of how you will perform the analysis so that you know you are collecting useful data and not missing something important.
+
+\subsection*{Assignment:}
+Following our discussion in class , you will need to formulate a well defined set of methods, or a standard operating procedure (SOP). Your project need only have one subject (if collecting human data), but consider how you would collect consistent and well controlled data if you were collecting on fifty subjects? Once you have your data, you’ll want to perform some analyses that seek to address your core hypothesis (RP 2). For this assignment then, you will need to write up a several paragraph description of your methods for both collecting data, and expected methods of data analysis (yes, you should expect it will change some once you get to performing the analysis). Each core measure or step should have it's own paragraph. Do not write a paragraph on each variable that your wearable will be measuring though (ie: x, y, z acceleration). Consider the papers we have read in class, such as that shown here. Following the RP2 example of gait in the community and clinical setting, you would want paragraphs on:
+\begin{enumerate}
+    \item[clinical gait:] What are the 10m walk and timed up an go tests and how will the subject be instructed to perform them?
+    \item[community gait:] How long will it be worn and what activities will be done?
+    \item[your wearable:] What measures will it collect, and at what sample rate?
+    \item[analysis:] How will the data from each be summarized and then compared?
+\end{enumerate}
+
+% figure showing sections of a pape again
+
+\subsection*{Expectations and Grading Rubric:}
+This section should detail nearly everything related to your data collection and analysis.  That doesn't mean that things won't change, but this does mean I want to see a very detailed plan!
+
+\begin{landscape}
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{p{.6in} c | p{2.25in} | p{2.25in} | p{2.25in}}
+        \multirow{2}{*}{Area}  	& Frac. of   	& UG: Meets		& UG:Exceeds, G:Meets   & G:Exceeds 	  \\
+                           			    & Points & Expectations  & Expectations  		& Expectations \\
+        \toprule
+        Clarity of Methodology  & 20\% 				& Some clarity issues; lacks certain details about methods. & Generally clear presentation; minor ambiguities present. & Clear, detailed, and logical presentation of methods used in the research. \\
+        \midrule
+        Reproducibility         & 10\%				& Limited detail; key aspects may hinder reproducibility. & Most methods are described adequately for replication, but some details are missing. & Methods are described in sufficient detail to allow replication by others. \\
+        \midrule
+        Justification of Methods & 10\%				& Limited justification; few references to literature\footnote{Wikipedia is acceptable here.}. & Good justification for most methods; some literature support\footnote{Wikipedia is okay, but cannot be the only citation}. & Strong justification for chosen methods, supported by relevant literature\footnote{citation of Wikipedia should be minimal.}. \\
+        \midrule
+        Data Collection and Analysis & 10\%				& Basic description; some misalignment with research questions. & Good description; general alignment with research questions. & Detailed description of data collection and analysis techniques; aligns with research questions. \\
+        \midrule
+        Writing Quality 		& 10\%				& Some clarity issues; several errors affect readability. & Mostly clear writing; few errors. & Clear, concise, and error-free writing. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{landscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analysis}
+\begin{description}
+	\item [Assigned:] March 31, 2026. % the last lecture day of the first week.
+	\item [Due:] April 24, 2026 at 11:59pm. Submissions turned in after this time and still within two weeks of this deadline will be automatically docked 50\% of the possible points. % the last lecture day of the third week
+	\item [Submission:] Share a direct link to your repo / folder on \href{https://canvas.nau.edu}{canvas.nau.edu} by the deadline.
+	\item [Points:] EE499 students, this is worth 5\% of your final grade.  EE599 students, this is worth 10\% of your final grade.
+\end{description}
+
+\subsection*{Background:}
+The analysis section of a research project is pivotal, as it transforms raw data into actionable insights that inform conclusions and guide future research. This section involves a systematic examination of the collected data, employing appropriate statistical or qualitative methods to identify patterns, trends, and relationships. By clearly articulating the analytical techniques used—such as regression analysis, thematic analysis, or computational modeling—researchers establish transparency and rigor in their findings. This not only bolsters the credibility of the research but also allows readers to understand the underlying processes that led to the conclusions. Additionally, the analysis section should thoughtfully interpret the results, discussing their implications in the context of existing literature and acknowledging any limitations. By situating findings within a broader framework, researchers can highlight their contributions to the field and suggest avenues for future inquiry. Ultimately, a robust analysis section ensures that data is not merely presented but critically examined, facilitating a deeper understanding of the research question and its significance.
+
+\subsection*{Assignment:}
+In this assignment you will perform all necessary statistical analyses needed to elucidate the story of your wearable.
+
+\subsection*{Expectations and Grading Rubric:}
+This section requires analysis code as well.  That should not be typset or dropped into your document, with few exceptions.  If you want to include some small segment of code to support some very important statement or detail, that is acceptable.
+
+\begin{landscape}
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{p{.6in} c | p{2.25in} | p{2.25in} | p{2.25in}}
+        \multirow{2}{*}{Area}  	& Frac. of   	& UG: Meets		& UG:Exceeds, G:Meets   & G:Exceeds 	  \\
+                           			    & Points & Expectations  & Expectations  		& Expectations \\
+        \toprule
+        Clarity of Analysis     & 20\% 				& Some clarity issues; lacks logical flow in parts of the analysis. & Mostly clear; some minor ambiguities present. & Clear and coherent presentation of analysis; logical flow of ideas. \\
+        \midrule
+        Depth of Analysis       & 10\%				& Basic analysis; superficial exploration of data patterns. & Good analysis with some depth, but misses key insights. & In-depth analysis that thoroughly explores the data, highlighting key patterns and insights. \\
+        \midrule
+        Interpretation of Findings & 10\%				& Basic interpretation; limited connection to research questions. & Generally sound interpretation; some connections may be unclear. & Insightful interpretation that connects findings to research questions and broader context. \\
+        \midrule
+        Consideration of Limitations & 10\%				& Some mention of limitations; lacks detail and depth. & Generally addresses limitations, but lacks depth. & Thoughtful discussion of limitations and potential impact on findings. \\
+        \midrule
+        Writing Quality 		& 10\%				& Some clarity issues; several errors affect readability. & Mostly clear writing; few errors. & Clear, concise, and error-free writing. \\
+        \midrule
+        Code Comment Quality    & 15\%				& Limited comments, making it non-obvious what you did or why. & Comments explain major sections. & Meaningful comments that detail major sections, any challengs that were addressed, and specifics in more complex code blocks. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{landscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion of Findings}
+\begin{description}
+	\item [Assigned:] April 14, 2026. % the last lecture day of the first week.
+	\item [Due:] April 21, 2026 at 11:59pm. Submissions turned in after this time and still within two weeks of this deadline will be automatically docked 50\% of the possible points. % the last lecture day of the third week
+	\item [Submission:] First, send me an invite to see your repository (GitHub or Google Drive).  Second, share a direct link to your repo / folder on \href{https://canvas.nau.edu}{canvas.nau.edu} by the deadline.
+	\item [Points:] EE499 students, this is worth 10\% of your final grade.  EE599 students, this is worth 10\% of your final grade.
+\end{description}
+
+\subsection*{Background:}
+The discussion of findings is a vital component of any research project, serving as the bridge between the data collected and its broader implications within the field. In this section, researchers interpret their results, contextualizing them within the framework of existing literature and theoretical perspectives. This involves critically analyzing how the findings align or contrast with prior studies, offering insights into their significance and relevance. Furthermore, the discussion should address the practical implications of the results, exploring how they can inform practice, policy, or further research. Importantly, this section also considers the limitations of the study, acknowledging potential biases, methodological constraints, and areas for future exploration. By fostering a nuanced dialogue around the findings, the discussion not only enhances the understanding of the research question but also paves the way for future inquiry, encouraging ongoing investigation and contributing to the advancement of knowledge in the field.
+% Your analyses alone don't tell the whole story.  Those do show the results, but they don't speak to what the results actually mean.  That's what you need to do here.
+
+\subsection*{Assignment:}
+Your assignment will be to research a wearable device and put together a report comparing and contrasting your selected device to other similar devices on the market. You {\em can} include specialty medical equipment, such as a CGM (continuous glucose monitor) or similar. You should explain the history of the device, the company, what market they are targeting, and describe the dimensions of functionality of the device. Identify at least three other similar devices to compare against. A table showing some of the similarities and differences would be helpful and informative. You should also provide details about how any data is collected, or shared with the user. What of that data does the company use, and how?
+
+\subsection*{Expectations and Grading Rubric:}
+Revise previous sections.  Add the discussion or conclusion to your paper.  This should finish off the written report!
+
+Your submission will be graded as follows:
+
+\begin{landscape}
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{p{.6in} c | p{2.25in} | p{2.25in} | p{2.25in}}
+        \multirow{2}{*}{Area}  	& Frac. of   	& UG: Meets		& UG:Exceeds, G:Meets   & G:Exceeds 	  \\
+                                & Points & Expectations  & Expectations  		& Expectations \\
+        \toprule
+        Clarity of Discussion   & 20\% 			& Some clarity issues; lacks logical flow in parts of the discussion. & Mostly clear; some minor ambiguities present. & Clear and coherent presentation of discussion; logical flow of ideas. \\
+        \midrule
+        Integration with Literature & 10\%		& Limited integration; few connections made with previous research. & Generally integrates literature; may miss some key connections. & Effectively integrates findings with existing literature, highlighting similarities, differences, and contributions. \\
+        \midrule
+        Implications of Findings & 10\%			& Basic discussion of implications; limited depth. & Addresses implications, but may lack depth in some areas. & Thoughtful discussion of practical, theoretical, and future research implications of findings. \\
+        \midrule
+        Acknowledgment of Limitations & 10\%	& Some mention of limitations; lacks detail and depth. & Addresses limitations but lacks depth in analysis. & Comprehensive discussion of limitations and their potential impact on the findings. \\
+        \midrule
+        Writing Quality 		& 10\%			& Some clarity issues; several errors affect readability. & Mostly clear writing; few errors. & Clear, concise, and error-free writing. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{landscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{In-Class Presentation}
+\begin{description}
+	\item [Assigned:] April 21, 2026. % the last lecture day of the first week.
+	\item [Due:] April 28, 2026 at 11:59pm. You will present as early as April 30, and as late as May 7.
+	\item [Submission:] Share a direct link to your repo / folder on \href{https://canvas.nau.edu}{canvas.nau.edu} by the deadline. You may continue to revise this assignment until presentation day.  Your presentation must be shared as a pdf, with all builds present (a new slide for each animation).
+	\item [Points:] This is worth 5\% of your final grade, for all students.
+\end{description}
+
+\subsection*{Background:}
+Oral lectures serve as a fundamental component in the academic environment, providing a dynamic platform for knowledge transfer between educators and students. They foster an interactive learning atmosphere where complex concepts can be conveyed in an engaging and accessible manner. Through verbal communication, lecturers can elucidate intricate ideas, emphasize key points, and illustrate examples in a way that written materials alone may not achieve. Additionally, oral presentations allow for immediate feedback and clarification, enabling students to ask questions and engage in discussions that deepen understanding. The tonal nuances, body language, and passionate delivery of an instructor can significantly enhance the educational experience, making information more relatable and memorable. Overall, oral lectures cultivate critical thinking, encourage participation, and help build a collaborative learning community that enriches the academic journey.
+
+\subsection*{Assignment:}
+Prepare a short presentation that covers all aspects of your project (everything you have written about, and all that is relevant that you skipped there).  This should be structured in a slide deck (Google Slides, PowerPoint, Keynote, or Beamer \LaTeX are all acceptable).
+
+\subsection*{Expectations and Grading Rubric:}
+I expect your report to be complete, on the order of 3-5 pages. All citations should be in IEEE format, and you need at least two describing how your primary commodity is used in a research setting. You submission should be single spaced, and a normal font size.
+
+\begin{landscape}
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{p{.6in} c | p{2.25in} | p{2.25in} | p{2.25in}}
+        \multirow{2}{*}{Area}  	& Frac. of   	& UG: Meets		& UG:Exceeds, G:Meets   & G:Exceeds 	  \\
+                                & Points        & Expectations  & Expectations  		& Expectations \\
+        \toprule
+        Content Knowledge       & 20\% 			& Basic understanding of the topic; struggles to answer questions adequately. & Shows good understanding; answers most questions correctly but may lack depth. & Demonstrates thorough understanding of the topic; answers questions confidently and accurately. \\
+        \midrule
+        Organization                 & 10\%		& Some organization; lacks clear transitions and logical flow. & Generally organized; some transitions may be unclear or missing. & Presentation is well-structured, with a clear introduction, body, and conclusion; ideas flow logically. \\
+        \midrule
+        Engagement and Delivery & 10\%			& Basic delivery; limited engagement with the audience; may read from notes. & Good delivery; maintains some eye contact and engages the audience, but may lack energy. & Highly engaging delivery; excellent eye contact, gestures, and vocal variety; captures audience interest. \\
+        \midrule
+        Visual Aids             & 10\%			& Visual aids are basic; may not effectively support the presentation. & Visual aids are mostly clear and relevant but may lack some effectiveness. & Visual aids are clear, informative, and enhance the presentation; well-designed and relevant. \\
+        \midrule
+        Timing           		& 10\%			& May exceed or fall short of time limits; misses some key points. & Mostly stays within time limits; covers most key points but may rush in some areas. & Effectively manages time; covers all key points within the allotted 15 minutes. \\
+        \midrule
+        Q\&A Participation 		& 15\%			& Limited participation in Q\&A; responses may lack depth or clarity. & Responds to questions; may not fully engage with the audience in Q\&A. & Encourages audience questions; responds fully and thoughtfully; demonstrates strong engagement. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{landscape}
+
+\end{document}
