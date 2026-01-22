@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.21)  22 JAN 2026 11:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.10.1)  22 JAN 2026 14:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -334,33 +334,34 @@ Package hyperref Info: Link coloring OFF on input line 23.
 \@outlinefile=\write3
 \openout3 = `syllabus.out'.
 
+ (./schedule_dates.tex)
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 50.
+(Font)              <10.95> on input line 53.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 50.
+(Font)              <8> on input line 53.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 50.
+(Font)              <6> on input line 53.
 Package epstopdf Info: Source file: <kyle.eps>
-(epstopdf)                    date: 2026-01-12 21:10:53
+(epstopdf)                    date: 2026-01-19 10:39:05
 (epstopdf)                    size: 474415 bytes
 (epstopdf)             Output file: <kyle-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-01-22 09:13:11
+(epstopdf)                    date: 2026-01-19 11:47:12
 (epstopdf)                    size: 367185 bytes
 (epstopdf)             Command: <repstopdf --outfile=kyle-eps-converted-to.pdf 
 kyle.eps>
-(epstopdf)             \includegraphics on input line 51.
+(epstopdf)             \includegraphics on input line 54.
 Package epstopdf Info: Output file is already uptodate.
 <kyle-eps-converted-to.pdf, id=6, 963.6pt x 1284.8pt>
 File: kyle-eps-converted-to.pdf Graphic file (type pdf)
 <use kyle-eps-converted-to.pdf>
-Package pdftex.def Info: kyle-eps-converted-to.pdf  used on input line 51.
+Package pdftex.def Info: kyle-eps-converted-to.pdf  used on input line 54.
 (pdftex.def)             Requested size: 72.26688pt x 108.39296pt.
 
-Overfull \vbox (30.87305pt too high) detected at line 51
+Overfull \vbox (30.87305pt too high) detected at line 54
  []
 
 
-Overfull \hbox (8.84972pt too wide) in paragraph at lines 50--59
+Overfull \hbox (8.84972pt too wide) in paragraph at lines 53--62
 [][]
  []
 
@@ -369,17 +370,17 @@ Overfull \hbox (8.84972pt too wide) in paragraph at lines 50--59
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./kyle-eps-converted-to.pd
 f>] (./ugslos.tex) (./gslos.tex) [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 82.
+(Font)              <9> on input line 85.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 82.
+(Font)              <5> on input line 85.
  (./grading.tex) [3] [4{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.
 enc}] [5] [6] (./schedule.tex
-Underfull \hbox (badness 10000) in paragraph at lines 28--30
+Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--52
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
 
  []
 
@@ -392,10 +393,10 @@ Package rerunfilecheck Info: File `syllabus.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9201 strings out of 474222
- 142999 string characters out of 5748732
+ 9218 strings out of 474222
+ 143263 string characters out of 5748733
  1940975 words of memory out of 5000000
- 31295 multiletter control sequences out of 15000+600000
+ 31309 multiletter control sequences out of 15000+600000
  565042 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,79p,1119b,575s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -410,7 +411,7 @@ lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 t9.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on syllabus.pdf (7 pages, 544712 bytes).
+Output written on syllabus.pdf (7 pages, 544723 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  145 compressed objects within 2 object streams
