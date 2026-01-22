@@ -15,6 +15,7 @@ directories=(
     "lecture-4-data-and-analysis"
     "lecture-5-agreements-correlations-regression"
     "research-project"
+    "week-2-discussion"
 )
 
 # Let's instead just add all directories, assuming that there is a latex file in each
