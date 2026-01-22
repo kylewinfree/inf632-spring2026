@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.10.1)  20 JAN 2026 17:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.21)  22 JAN 2026 09:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -341,10 +341,10 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 50.
 Package epstopdf Info: Source file: <kyle.eps>
-(epstopdf)                    date: 2026-01-19 10:39:05
+(epstopdf)                    date: 2026-01-12 21:10:53
 (epstopdf)                    size: 474415 bytes
 (epstopdf)             Output file: <kyle-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-01-19 11:47:12
+(epstopdf)                    date: 2026-01-22 09:13:11
 (epstopdf)                    size: 367185 bytes
 (epstopdf)             Command: <repstopdf --outfile=kyle-eps-converted-to.pdf 
 kyle.eps>
@@ -393,7 +393,7 @@ Package rerunfilecheck Info: File `syllabus.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  9201 strings out of 474222
- 142999 string characters out of 5748733
+ 142999 string characters out of 5748732
  1940975 words of memory out of 5000000
  31295 multiletter control sequences out of 15000+600000
  565042 words of font info for 59 fonts, out of 8000000 for 9000
