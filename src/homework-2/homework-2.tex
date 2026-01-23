@@ -1,0 +1,102 @@
+% Document settings
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{pdflscape}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{booktabs}
+\pagestyle{plain}
+\setlength\parindent{0pt}
+
+\begin{document}
+\input{../syllabus/schedule_dates}
+
+\Huge INF632 Homework 2
+\normalsize ~
+
+\noindent\rule{\textwidth}{1pt}\vspace{.5em}
+
+\LARGE Basic Statistical Tests
+\normalsize ~
+
+% Course information
+\begin{description}
+	\item [Assigned:] \wkThreeTh.
+	\item [Due:] \wkSixTh~ at 11:59pm. Submissions turned in after this time and still within two weeks of this deadline will be automatically docked 50\% of the possible points. % the last lecture day of the third week
+	\item [Submission:]Share a direct link to your repo / folder on \href{https://canvas.nau.edu}{canvas.nau.edu} by the deadline.
+	\item [Points:] EE499 students, this is worth 15\% of your final grade.  EE599 students, this is worth 10\% of your final grade.
+\end{description}
+
+\section*{Background:}
+Wearable devices have seen great utility in behavioral health science. Though they also provide very different data from what is typically collected in such fields, many of the behavioral health statistical methods apply to data from these sources too.
+
+\section*{Assignment:}
+Your assignment will be to write several functions to perform statistical tests on a collection of data sets and then use those functions to evaluate the dataset given. You may use Octave/MATLAB, Python, R, or any of these in Notebooks, but you must write the functions to compute and perform the statistics outlined below from scratch.  You shouldn't need any libraries beyond basics for reading CSVs.
+
+\subsection*{Functions}
+\subsubsection*{Harmonic Mean}
+then maths
+
+Should accept N complete datasets
+
+\subsubsection*{Pooled Standard Deviation}
+more maths
+
+\subsubsection*{T-Test}
+maths
+
+\subsubsection*{ANOVA}
+anova
+
+\subsubsection*{Repeated Measures ANOVA}
+
+\subsection*{Application of your Functions}
+Using the functions you have developed from above, and the data provided, compute the following and answer the questions posed.
+
+\subsubsection{Daily Steps}
+How many steps per day, on average do the subjects walk? Use the harmonic and arithmetic mean.  Are they different?  Why?
+
+\subsubsection{Group Variance}
+What is the variance of the group?
+
+(across subjects, pooled sd)
+
+\subsubsection{Comparing the Devices}
+Does the Fitbit report the same step measures as the ActiGraph?
+(t-test)
+
+\subsubsection{Weekend Warriors}
+Are the subjects equally active across each day of the week?
+(as determined by daily steps in DoW, anova)
+
+\subsubsection{Seasonality}
+In the two year data set, you’ll nd daily step totals. Across the two years, were all months
+traveled equally?
+(repeated measures anova)
+
+\section*{Expectations and Grading Rubric:}
+Great news, you get a break from IEEE format submissions on this homework!  This time I need to see your code, with comments that make it clear what you are doing.  If you choose to complete this assignment in a Notebook (e.g. Jupyter Notebook), you can show your answers to the ``Application of your Functions'' in markdown cells after each step.  If you choose not to use a Notebook, prepare a markdown file (.md) for each or your respsonses to the ``Application of your Functions'' questions.
+
+Your submission will be graded as follows:
+
+\begin{landscape}
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{p{.6in} c | p{2.25in} | p{2.25in} | p{2.25in}}
+        \multirow{2}{*}{Area}  	& Frac. of   	& UG: Meets		& UG:Exceeds, G:Meets   & G:Exceeds 	  \\
+                           			    & Points & Expectations  & Expectations  		& Expectations \\
+        \toprule
+        Code Requirements      	& 40\%\vspace{.25in} 			& The code takes inputs and provides outputs as specified & The code also accepts optional input and makes use of defaults. & The code can self identify characteristics that change how the calculations will be performed. \\
+        Code Clarity            & 40\%\vspace{.25in}			& Minimal comments, but sufficent to understand the basics of what is happening. & The code make good use of comments, including outlining some assumptions and where errors could happen (or how they are being handled). & The comments make reading the code so easy that one doesn't even have to know the programming language to understand the steps. \\
+        Analysis and Response   & 20\%\vspace{.25in}			& The analysis is performed correctly and the findings are accurate. & The analysis and findings are correct, and the explanation shows an understanding of what was done and why. & The analysis and findings are correct, the explanation shows depth of thought, and further analysis is suggested in detail. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\end{landscape}
+
+\end{document}

@@ -1,4 +1,4 @@
-personal_ws-1.1 en 39 
+personal_ws-1.1 en 47 
 Astrogeology
 Biomechanics
 Cyber
@@ -8,6 +8,7 @@ EMG
 FAC
 Fitbit
 IoT
+Kolb's
 Marburg
 Microbiome
 NAU
@@ -16,10 +17,12 @@ Ph
 SEnsole
 SICCS
 Sensole
+Stice
 UG
 Winfree
 accelerometer
 bg
+ble
 compat
 csv
 dateplot
@@ -28,11 +31,16 @@ fg
 frametitle
 haptics
 iTorqU
+ics
+informatika
 kylewinfree
+lcc
 mHealth
+multiTimeline
 naublue
 nauyellow
 sep
+tion
 wearables
 xticklabel
 ylabel

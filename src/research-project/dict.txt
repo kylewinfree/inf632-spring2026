@@ -1,1 +1,17 @@
-personal_ws-1.1 en 0 
+personal_ws-1.1 en 16 
+Beamer
+CGM
+EE
+Frac
+Hs
+Interp
+JBHI
+OpenLog
+Qs
+Testability
+UG
+goniometer
+pdf
+plagerized
+repo
+transformative

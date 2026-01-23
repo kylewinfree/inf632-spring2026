@@ -1,4 +1,5 @@
-personal_ws-1.1 en 19 
+personal_ws-1.1 en 27 
+APL's
 Cyber
 Dimensioning
 EE
@@ -6,8 +7,14 @@ FAC
 HCI
 HD
 Implantables
+Kai
 Marburg
+Orthotics
 Prosthetics
+SignAloud
+Thorp
+Thorp's
+UC
 Winfree
 bg
 compat
@@ -17,4 +24,5 @@ fg
 frametitle
 naublue
 nauyellow
+th
 wirelessly
