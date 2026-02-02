@@ -113,26 +113,23 @@
 	
 	\subsection{Typical Analysis}
 	\begin{frame}
-		\frametitle{Typical Analysis}
-			\begin{itemize}
-				\item Measures of central tendancy
-				\item Measures of variability
-				\item Comparisons
-				\item Trends (Binned, Change Point, Detrended Flucuation)
-			\end{itemize}
+	\frametitle{Typical Analysis}
+		\begin{itemize}
+			\item Measures of central tendancy
+			\item Measures of variability
+			\item Comparisons
+			\item Trends (Binned, Change Point, Detrended Flucuation)
+		\end{itemize}
 	\end{frame}
 
 \section{Analysis}
 	\subsection{Central Tendency}
 	\begin{frame}
-		\frametitle{Central Tendency (commonly $\mu$)}
+		\frametitle{Central Tendency}
 		\begin{itemize}
-			\item Arithmetic Mean:\\ $\bar{A} = \frac{1}{n}\sum_{i=1}^{n}a_i$
-			% \vspace{.25in}
-			\item Geometric Mean\footnote{useful whenever the quantities to be averaged combine multiplicatively}:\\ $\bar{G} = \left(\prod_{i=1}^n x_i\right)^{\frac1n} = \sqrt[n]{x_1 x_2 \ldots x_n}$
-			% \vspace{.25in}
-			\item Harmonic Mean\footnote{most appropriate average for ratios and rates such as speeds, robust to outliers}:\\ $\bar{H} \
-			frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \ldots \frac{1}{x_n}} = \frac{n}{\sum_{i=1}^n \frac{1}{x_i}}$
+			\item Arithmetic Mean:\\ $\bar{A} = \frac{1}{n} \sum_{i=1}^{n}a_i$
+			\item Geometric Mean\footnote{useful whenever the quantities to be averaged combine multiplicatively}:\\ $\bar{G} = \left(\prod_{i=1}^n x_i\right)^{\frac{1}{n}} = \sqrt[n]{x_1 x_2 \ldots x_n}$
+			\item Harmonic Mean\footnote{most appropriate average for ratios and rates such as speeds, robust to outliers}:\\ $\bar{H} == \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \ldots \frac{1}{x_n}} = \frac{n}{\sum_{i=1}^n \frac{1}{x_i}}$
 			\item Median
 			\item Mode
 		\end{itemize}
@@ -141,39 +138,42 @@
 	\subsection{Measures of Variance}
 	\begin{frame}
 		\frametitle{Measures of Variance}
-		\begin{itemize}
-			\item Range:\\ $\text{Range} = max(X) - min(X)$
-			% \vspace{.25in}
-			\item Variance:\\ $\text{Var}(X) = \sigma^2 = \frac1n \sum_{i=1}^n (x_i - \mu)^2$
-			% \vspace{.25in}
-			\item Standard Deviation:\\ $\sigma = \sqrt{\sigma^2} = \sqrt{\frac1n \sum_{i=1}^n (x_i - \mu)^2$}$
-			\item Pooled Standard Deviation:\\ $\sigma_p = \sqrt{\frac{\sum_{i=1}^k (n_i - 1)\sigma_i^2}{\sum_{i=1}^k (n_i - 1)}} = \sqrt{\frac{(n_1-1)\sigma_1^2 + (n_2-1)\sigma_2^2 + \ldots (n_k-1)\sigma_k^2}{n_1 + n_2 + \ldots + n_k - k}}$
-		\end{itemize}
+	% 	\begin{itemize}
+	% 		\item Range:\\ $\text{range} = max(X) - min(X)$
+	% 		\item Variance:\\ $\text{Var}(X) = \sigma^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \mu)^2$
+	% 		\item Standard Deviation:\\ $\sigma = \sqrt{\sigma^2} = \sqrt{ \frac{1}{n} \sum_{i=1}^n (x_i - \mu)^2$ }$
+	% 		\item Pooled Standard Deviation:\\ $\sigma_p = \sqrt{ \frac{\sum_{i=1}^k (n_i - 1)\sigma_i^2}{\sum_{i=1}^k (n_i - 1)} } = \sqrt{ \frac{(n_1-1)\sigma_1^2 + (n_2-1)\sigma_2^2 + \ldots (n_k-1)\sigma_k^2}{n_1 + n_2 + \ldots + n_k - k} }$
+	% 	\end{itemize}
 	\end{frame}
 
-	\subsection{Measures of Variance}
-	\begin{frame}
-		\frametitle{Standard Deviation}
-		This is a ``normal'' curve, coming from theory driven by observations. One standard deviation is the inflection point on the curve.
-		\includegraphics[width=1\linewidth]{figures/standard-deviation-in-normal-distributions.png}
-	\end{frame}
-	% sampling theory should be in here too
-	\subsection{Measures of Variance}
-	\begin{frame}
-		\frametitle{Pooled Standard Deviation}
-		Suppose we have three participants and have measured the number of steps they take every day for a month.  We have an average for each, and a standard devation around those means for each participant.  So then, how do we calculate the `average' mean and standard deviation?
-		\includegraphics[width=1\linewidth]{figures/normal-distribution-1.gif}
-	\end{frame}
+	% \subsection{Measures of Variance}
+	% \begin{frame}
+	% 	\frametitle{Standard Deviation}
+	% 	This is a ``normal'' curve, coming from theory driven by observations. One standard deviation is the inflection point on the curve.
+	% 	\includegraphics[width=1\linewidth]{figures/standard-deviation-in-normal-distributions.png}
+	% \end{frame}
+	% % sampling theory should be in here too
+	% \subsection{Measures of Variance}
+	% \begin{frame}
+	% 	\frametitle{Pooled Standard Deviation}
+	% 	Suppose we have three participants and have measured the number of steps they take every day for a month.  We have an average for each, and a standard devation around those means for each participant.  So then, how do we calculate the `average' mean and standard deviation?
+	% 	\includegraphics[width=1\linewidth]{figures/normal-distribution-1.gif}
+	% \end{frame}
 	
 	\subsection{Standardized Measures}
 	\begin{frame}
 		\frametitle{Standardized Measures (Z-Score)}
-		\begin{definition}
-		Haptics
-			\begin{itemize}
-				\item the science and technology of touch
-			\end{itemize}
-		\end{definition}
+		\begin{columns}
+			\begin{column}{.5\linewidth}
+				What if we wanted to make some comparisons when measures are in differen units?\\Or what what if the samples seem to have some bias, and we want to understand deviations from that bias?
+			\end{column}
+			\begin{column}{.5\linewidth}
+			\centering
+				$z_i = \frac{x_i - \mu}{\sigma}$
+
+				\includegraphics[width=1\linewidth]{figures/standard-deviation-in-normal-distributions.png}
+			\end{column}
+		\end{columns}
 	\end{frame}
 	
 	\subsection{Comparison Tests}
@@ -190,35 +190,4 @@
 		stuff
 	\end{frame}
 
-% \section{Readings}
-% 	\subsection{Thursday}
-% 		\begin{frame}
-% 		\frametitle{Thrusday}
-% 		\footnotesize
-% 			\begin{itemize}
-% 				\item OPTIONAL - Embodied Auxetic Intelligence in a Glove‐Type Wearable Haptic Interface Connecting Humans.pdf
-% 				\item OPTIONAL - FiDTouch - A 3D Wearable Haptic Display for the Finger Pad.pdf
-% 				\item OPTIONAL - Haptics in Teleoperated Medical Interventions -  Force Measurement, Haptic Interfaces and Their Influence on Users Performance.pdf
-% 				\item OPTIONAL - Music Tactalizer - A Wearable Haptic Music Player with Multi-Feature Audio-Tactile Rendering.pdf
-% 				\item OPTIONAL - Predicting the Future with Wearable Technology.pdf
-% 				\item OPTIONAL - The Future of Wearable Technologies and Remote Monitoring in Health Care.pdf
-% 				\item OPTIONAL - Ultralight Soft Wearable Haptic Interface with Shear‐Normal‐Vibration Feedback.pdf
-% % 				\item {\em TO DISCUSS - Haptic Perception and Its Relation to Action.pdf}
-% % 				\item {\em TO DISCUSS - Haptic Rendering Introductory Concepts.pdf}
-% % 				\item {\em TO DISCUSS - The future of wearable technologies.pdf}
-% 			\end{itemize}
-% 		\end{frame}
-% 		\begin{frame}
-% 		\frametitle{Thrusday}
-% 			\begin{itemize}
-% 				\footnotesize
-% 				\item OPTIONAL - Embodied Auxetic Intelligence in a Glove‐Type Wearable Haptic Interface Connecting Humans.pdf
-% 				\item ...
-% 				\item OPTIONAL - Ultralight Soft Wearable Haptic Interface with Shear‐Normal‐Vibration Feedback.pdf
-% 				\normalsize
-% 				\item {\bf TO DISCUSS - Haptic Perception and Its Relation to Action.pdf}
-% 				\item {\bf TO DISCUSS - Haptic Rendering Introductory Concepts.pdf}
-% 				\item {\bf TO DISCUSS - The future of wearable technologies.pdf}
-% 			\end{itemize}
-% 		\end{frame}
 \end{document}
