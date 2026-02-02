@@ -79,57 +79,34 @@
 % \end{frame}
 
 \section{Clinical Standards of Wearable Devices (PA)}
-	\subsection{Devices}
+	\subsection{Devices (Actigraphy)}
 	\begin{frame}
 		\frametitle{Devices}
+		
+		Clinical and Research devices often require wired connections, but wireless is taking over as security is addressed.
 		\centering
-		%\includegraphics[width=1\linewidth]{figures/IMG_3915.png}
+		\includegraphics[width=.25\linewidth]{figures/actigraph cough.png}
+		\includegraphics[width=.5\linewidth]{figures/Best_Actigraphy_2025.jpg}\\
+		\includegraphics[width=.5\linewidth]{figures/ABUIABACGAAgwIWqtwYo_dulpwQw6AY45gM.jpg}		
+		\includegraphics[width=.25\linewidth]{figures/PALpatch_45355-768x753.png}
 	\end{frame}
-	
-	\subsection{Data Transfer}
-	\begin{frame}
-		\frametitle{Data Transfer}
-		\begin{columns}
-			\begin{column}{.25\linewidth}
-				\begin{itemize}
-					\item Hearing?
-					\item Sight?
-					\item Smell?
-					\item Taste?
-					\item Touch?
-				\end{itemize}
-			\end{column}
-			\begin{column}{.25\linewidth}
-				%\includegraphics[width=1\linewidth]{figures/4 stick figure high point phase of walk cycle animation tutorial the helpful art teacher.JPG}
-			\end{column}
-			\begin{column}{.5\linewidth}
-				\begin{itemize}
-					\item Which of these seems the most valuable to you?
-					\item Which would you relinquish last?
-				\end{itemize}
-			\end{column}
-		\end{columns}
-	\end{frame}
+
 	
 	\subsection{Data}
 	\begin{frame}
 		\frametitle{Data}
 		\begin{columns}
-			\begin{column}{.375\linewidth}
-				Sight
-				%\includegraphics[width=1\linewidth]{figures/intoxicating_eye_stock_by_taylorinchains-d35yf9n.jpg}
+			\begin{column}{.5\linewidth}
+				Typically time based
 				\begin{itemize}
-					\item Centralized
-					\item Broad
-					\item Passive
-					\item Cognitive
+					\item A header often defines parameters
+					\item Each row is an entry
+					\item Each column is a measure
 				\end{itemize}
 			\end{column}
-			\begin{column}{.25\linewidth}
-				%\includegraphics[width=1\linewidth]{figures/4 stick figure high point phase of walk cycle animation tutorial the helpful art teacher.JPG}
-			\end{column}
-			\begin{column}{.375\linewidth}
-				~ % empty, so that it all appears on the next slide
+			\begin{column}{.5\linewidth}
+				Sometimes the data are stored in a mixed format, text and low level binary
+				\includegraphics[width=1\linewidth]{figures/actigraph_format.png}
 			\end{column}
 		\end{columns}
 	\end{frame}
@@ -137,72 +114,55 @@
 	\subsection{Typical Analysis}
 	\begin{frame}
 		\frametitle{Typical Analysis}
-		\begin{columns}
-			\begin{column}{.375\linewidth}
-				\begin{center}
-					Sight
-				\end{center}
-				%\includegraphics[width=1\linewidth]{figures/intoxicating_eye_stock_by_taylorinchains-d35yf9n.jpg}
-				\begin{itemize}
-					\item Centralized
-					\item Broad
-					\item Passive
-					\item Cognitive
-				\end{itemize}
-			\end{column}
-			\begin{column}{.25\linewidth}
-				%\includegraphics[width=1\linewidth]{figures/4 stick figure high point phase of walk cycle animation tutorial the helpful art teacher.JPG}
-			\end{column}
-			\begin{column}{.375\linewidth}
-				\begin{center}
-					Touch
-				\end{center}
-				%\includegraphics[width=1\linewidth]{figures/wrist-drop.jpg}
-				\begin{itemize}
-					\item Distributed
-					\item Narrow
-					\item Interactive
-					\item Fundamental
-				\end{itemize}
-			\end{column}
-		\end{columns}
+			\begin{itemize}
+				\item Measures of central tendancy
+				\item Measures of variability
+				\item Comparisons
+				\item Trends (Binned, Change Point, Detrended Flucuation)
+			\end{itemize}
 	\end{frame}
 
 \section{Analysis}
 	\subsection{Central Tendency}
 	\begin{frame}
-		\frametitle{Central Tendency}
-	  %\setbeamercovered{transparent=20}
-		\begin{definition}
-			haptic\\ %\textcolor{gray}{| \textipa{/ˈwɛərəbl/} |}\\ % or 'wer\schwa b(\schwa)l 
-			\textbf{adjective}\\
-			\begin{enumerate}
-				\item of or relating to the sense of touch, in particular relating to the perception and manipulation of objects using the senses of touch and proprioception.
-			\end{enumerate}
-			\textbf{origin}\\
-			\begin{enumerate}
-				\item late 19th century: from Greek {\em haptikos} {\bf `able to touch or grasp,'} from {\em haptein} {\bf `fasten.'}
-			\end{enumerate}
-		\end{definition}
+		\frametitle{Central Tendency (commonly $\mu$)}
+		\begin{itemize}
+			\item Arithmetic Mean:\\ $\bar{A} = \frac{1}{n}\sum_{i=1}^{n}a_i$
+			% \vspace{.25in}
+			\item Geometric Mean\footnote{useful whenever the quantities to be averaged combine multiplicatively}:\\ $\bar{G} = \left(\prod_{i=1}^n x_i\right)^{\frac1n} = \sqrt[n]{x_1 x_2 \ldots x_n}$
+			% \vspace{.25in}
+			\item Harmonic Mean\footnote{most appropriate average for ratios and rates such as speeds, robust to outliers}:\\ $\bar{H} \
+			frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \ldots \frac{1}{x_n}} = \frac{n}{\sum_{i=1}^n \frac{1}{x_i}}$
+			\item Median
+			\item Mode
+		\end{itemize}
 	\end{frame}
 	
 	\subsection{Measures of Variance}
 	\begin{frame}
 		\frametitle{Measures of Variance}
-		\begin{definition}
-			optics\\ %\textcolor{gray}{| \textipa{/ˌinfərˈmadiks/} |}\\
-			\textbf{plural noun}\\
-			\begin{enumerate}
-				\item the \underline{scientific study of} sight and the behavior of light, or the properties of transmission and deflection of other forms of radiation.
-			\end{enumerate}
-		\end{definition}
-		\begin{definition}
-			in\textbullet for\textbullet mat\textbullet ics\\ %\textcolor{gray}{| \textipa{/ˌinfərˈmadiks/} |}\\
-			\textbf{plural noun}\\
-			\begin{enumerate}
-				\item the \underline{science of} processing data for storage and retrieval; informatics science
-			\end{enumerate}
-		\end{definition}
+		\begin{itemize}
+			\item Range:\\ $\text{Range} = max(X) - min(X)$
+			% \vspace{.25in}
+			\item Variance:\\ $\text{Var}(X) = \sigma^2 = \frac1n \sum_{i=1}^n (x_i - \mu)^2$
+			% \vspace{.25in}
+			\item Standard Deviation:\\ $\sigma = \sqrt{\sigma^2} = \sqrt{\frac1n \sum_{i=1}^n (x_i - \mu)^2$}$
+			\item Pooled Standard Deviation:\\ $\sigma_p = \sqrt{\frac{\sum_{i=1}^k (n_i - 1)\sigma_i^2}{\sum_{i=1}^k (n_i - 1)}} = \sqrt{\frac{(n_1-1)\sigma_1^2 + (n_2-1)\sigma_2^2 + \ldots (n_k-1)\sigma_k^2}{n_1 + n_2 + \ldots + n_k - k}}$
+		\end{itemize}
+	\end{frame}
+
+	\subsection{Measures of Variance}
+	\begin{frame}
+		\frametitle{Standard Deviation}
+		This is a ``normal'' curve, coming from theory driven by observations. One standard deviation is the inflection point on the curve.
+		\includegraphics[width=1\linewidth]{figures/standard-deviation-in-normal-distributions.png}
+	\end{frame}
+	% sampling theory should be in here too
+	\subsection{Measures of Variance}
+	\begin{frame}
+		\frametitle{Pooled Standard Deviation}
+		Suppose we have three participants and have measured the number of steps they take every day for a month.  We have an average for each, and a standard devation around those means for each participant.  So then, how do we calculate the `average' mean and standard deviation?
+		\includegraphics[width=1\linewidth]{figures/normal-distribution-1.gif}
 	\end{frame}
 	
 	\subsection{Standardized Measures}
