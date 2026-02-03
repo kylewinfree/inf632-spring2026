@@ -1,7 +1,7 @@
 readme
 
 # actigraph and fitbit
-The sample data provided in the ==actigraph and fitbit== folder is from a previous study that looked at concurrent measures from healthy young adults over the course of two weeks.  This sample is of four de-identified participants.
+The sample data provided in the **actigraph and fitbit** folder is from a previous study that looked at concurrent measures from healthy young adults over the course of two weeks.  This sample is of four de-identified participants.
 
 Files in each directory are prefaced by the the participant ID number.
 
@@ -56,7 +56,7 @@ Where:
 
 # multiyear
 
-In this directory you will find measures of calories, intensities, steps, and METs as made over the duration of approximately two years. There are ten file formats in this directory.
+In this directory (**multiyear**) you will find measures of calories, intensities, steps, and METs as made over the duration of approximately two years. There are ten file formats in this directory.
 
 ## dailyCalories
 
@@ -134,4 +134,4 @@ Where:
 
 ## minuteMeasure
 
-The minute level csvs in this directory follow the same paradigm as the Fitbit Paradigm from the ==actigraph and fitbit== directory.
+The minute level csvs in this directory follow the same paradigm as the Fitbit Paradigm from the **actigraph and fitbit** directory.
