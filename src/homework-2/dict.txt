@@ -1,4 +1,4 @@
-personal_ws-1.1 en 23 
+personal_ws-1.1 en 25 
 ANOVA
 ActiGraph
 CGM
@@ -12,9 +12,11 @@ RMANOVA
 UG
 Wearables
 accelerometer
+actigraph
 dataframes
 df
 eg
+fitbit
 lookups
 md
 rANOVA

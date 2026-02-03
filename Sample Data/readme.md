@@ -28,7 +28,7 @@ Where:
 - Axis2 is the sum vector counts on the second axis (y) in that epoch period
 - Axis3 is the sum vector counts on the third axis (z) in that epoch period
 - Steps is the steps counted in that epoch period
-- Lux is the cummulative luminosity in that epoch period
+- Lux is the cumulative luminosity in that epoch period
 - IncOff is the number of seconds that the device was likely off, in that epoch period
 - IncStand is the estimated number of seconds that the participant was standing
 - IncSit is the estimated number of seconds that the participant was sitting
@@ -37,7 +37,7 @@ Where:
 Note, Inc refers to measures from the inclinometer, derived from the accelerometer.  IncOff, IncStand, IncSit, and IncLie should sum to 60 seconds if the epoch was set to one minute (00:01:00).
 
 ## Fitbit Paradigm
-The fitbit data presented here is an export from Fitbase, a third party data broker.  All measures were recorded at the minute level; the csvs are structured as follows:
+The fitbit data presented here is an export from Fitabase, a third party data broker.  All measures were recorded at the minute level; the csvs are structured as follows:
 
 | row | 			| | | | | | |
 |---|---------------|-|-|-|-|-|-|
@@ -81,7 +81,7 @@ Where:
 
 - ActivityDay is the date (MM:DD:YYYY)
 - SedentaryMinutes, LightlyActiveMinutes, FairlyActiveMinutes, VeryActiveMinutes reflects the total number of minutes in Sedentary, Lightly, Fairly (moderate), or Very active intensities.  On days where these four columns sum to less than 1440 minutes, it can be assumed that the subject did not wear their Fitbit for the entire day.
-- SedintaryActiveDistance, LightActiveDistance, ModeratelyActiveDistance, VeryActiveDistance relects the distance traveled when in those activity levels.  This is assumed to be reported in kilometers, and is dependent on an assumed stride length.
+- SedintaryActiveDistance, LightActiveDistance, ModeratelyActiveDistance, VeryActiveDistance reflects the distance traveled when in those activity levels.  This is assumed to be reported in kilometers, and is dependent on an assumed stride length.
 
 ## dailySteps
 
@@ -104,7 +104,7 @@ Where:
 
 Where:
 
-- ActivityHour is the datetime (MM:DD:YYYY HH:MM:SS AM/PM)
+- ActivityHour is the date-time (MM:DD:YYYY HH:MM:SS AM/PM)
 - Calories is the total number of calories expended during that hour
 
 ## hourlyIntensities
@@ -116,7 +116,7 @@ Where:
 
 Where:
 
-- ActivityHour is the datetime (MM:DD:YYYY HH:MM:SS AM/PM)
+- ActivityHour is the date-time (MM:DD:YYYY HH:MM:SS AM/PM)
 - TotalIntensity is the dot product of minutes in sedentary, light, moderate, and very active intensity levels with the corresponding intensity score ([0 1 2 3] correspondingly)
 - AverageIntensity is the mean intensity score for all minutes
 
@@ -129,7 +129,7 @@ Where:
 
 Where:
 
-- ActivityHour is the datetime (MM:DD:YYYY HH:MM:SS AM/PM)
+- ActivityHour is the date-time (MM:DD:YYYY HH:MM:SS AM/PM)
 - StepTotal is the total number of steps taken during that hour
 
 ## minuteMeasure
