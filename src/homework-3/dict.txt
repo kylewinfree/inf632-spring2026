@@ -1,11 +1,20 @@
-personal_ws-1.1 en 10 
+personal_ws-1.1 en 19 
 CGM
+CSVs
 EE
 FaceBook
 Frac
+HW
+Jupyter
 UG
 Wearables
 accelerometer
+centroids
+cpa
+dailySteps
 eg
+kmeans
+knn
+md
 repo
 wearables

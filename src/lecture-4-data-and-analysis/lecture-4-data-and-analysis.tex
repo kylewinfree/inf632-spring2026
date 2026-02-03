@@ -206,7 +206,6 @@
 				\includegraphics[width=1\linewidth]{figures/T0A02.jpg}
 			\end{column}
 		\end{columns}
-
 	\end{frame}
 	
 	\subsection{Analysis of Variance}
@@ -241,7 +240,7 @@
 		\end{columns}
 	\end{frame}
 
-		\begin{frame}
+	\begin{frame}
 		\frametitle{Analysis of Variance (ANOVA)}
 		And what if we have three or more groups? A t-test isn't really going to work for us... why?
 
@@ -258,16 +257,51 @@
 					~ 		& ~ & 20 & 8 \\
 					~ 		& ~ & 14 & ~ \\
 					\midrule
-					n 		& 5 & 7 & 6 \\
+					$n$ 		& 5 & 7 & 6 \\
 					$\sum$ 	& 49 & 85 & 54 \\
 				\end{tabular}
 			\end{column}
 			\begin{column}{.5\linewidth}
-				$\sum x = 188$
+				$N = \sum_{i=1}^k = 18$
 
-				$\sum x^2 = $
+				$\sum X = 188$
 
-				$\alpha = 0.05$
+				$\sum X^2 = $
+
+				Total Sum of Squares: $SS_T = \sum X^2 - \frac{(\sum X)^2}{n}$
+
+				Sum of Squares Between Groups: $SS_B = \sum_{i=1}^k \left( \frac{(\sum X_i)^2}{n_i}\right) - \frac{(\sum X)^2}{n}$
+
+				Sum of Squares Within Groups: $SS_T - SS_B$
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Analysis of Variance (ANOVA)}
+		And what if we have three or more groups? A t-test isn't really going to work for us... why?
+
+		We can test if there exists a statistically significant difference among the groups first.\vspace{.125in}
+
+		\begin{columns}
+			\begin{column}{.5\linewidth}
+				$\sum X = 188$
+
+				$\sum X^2 = $
+
+				Total Sum of Squares: $SS_T = \sum X^2 - \frac{(\sum X)^2}{n}$
+
+				Sum of Squares Between Groups: $SS_B = \sum_{i=1}^k \left( \frac{(\sum X_i)^2}{n_i} \right) - \frac{(\sum X)^2}{N}$
+
+				Sum of Squares Within Groups: $SS_T - SS_B$
+			\end{column}
+			\begin{column}{.5\linewidth}
+				\begin{tabular}{ p{.75in} c c c c }
+					source of variation 	& $SS$ & $df$ & $MS$ & $F$ \\
+					between groups 			& $SS_B$ & $k-1=2$ & $\frac{SS_B}{2}$ & $\frac{MS_B}{MS_W}$ \\
+					within groups (error) 	& $SS_W$ & $N-k=$ & $\frac{SS_W}{24}$ & ~ \\
+				\end{tabular}
+				And then use an $F-stat$ lookup table / function.
 			\end{column}
 		\end{columns}
 	\end{frame}

@@ -1,12 +1,24 @@
-personal_ws-1.1 en 11 
+personal_ws-1.1 en 23 
+ANOVA
+ActiGraph
 CGM
 CSVs
 EE
 FaceBook
+Fitbit
 Frac
+Jupyter
+RMANOVA
 UG
 Wearables
 accelerometer
+dataframes
+df
 eg
+lookups
+md
+rANOVA
 repo
+scipy
+tcdf
 wearables

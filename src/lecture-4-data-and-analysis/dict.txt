@@ -1,12 +1,18 @@
-personal_ws-1.1 en 11 
+personal_ws-1.1 en 17 
 ANOVA
+Actigraphy
+Detrended
 EE
 FAC
 Marburg
 Winfree
 bg
+cdf
+df
 eps
 fg
 frametitle
+multiplicatively
 naublue
 nauyellow
+tcdf

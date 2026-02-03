@@ -35,24 +35,51 @@
 Wearable devices have seen great utility in behavioral health science. Though they also provide very different data from what is typically collected in such fields, many of the behavioral health statistical methods apply to data from these sources too.
 
 \section*{Assignment:}
-Your assignment will be to write several functions to perform statistical tests on a collection of data sets and then use those functions to evaluate the dataset given. You may use Octave/MATLAB, Python, R, or any of these in Notebooks, but you must write the functions to compute and perform the statistics outlined below from scratch.  You shouldn't need any libraries beyond basics for reading CSVs.
+Your assignment will be to write several functions to perform statistical tests on a collection of data sets and then use those functions to evaluate the dataset given. You may use Octave/MATLAB, Python, R, or any of these in Notebooks, but you must write the functions to compute and perform the statistics outlined below from scratch.  You shouldn't need any libraries beyond basics for reading CSVs and two statistic value lookups.
 
 \subsection*{Functions}
 \subsubsection*{Harmonic Mean}
-then maths
+Your function should accept N complete datasets (vectors / arrays / dataframes / your choice) and return the harmonic mean of each.  Use the following to calculate the harmonic mean(s):
 
-Should accept N complete datasets
+$\bar{H} == \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \ldots \frac{1}{x_n}} = \frac{n}{\sum_{i=1}^n \frac{1}{x_i}}$
 
 \subsubsection*{Pooled Standard Deviation}
-more maths
+
+Remember that pooled standard deviation can be calculated as follows:
+
+$\sigma_p = \sqrt{ \frac{\sum_{i=1}^k (n_i - 1)\sigma_i^2}{\sum_{i=1}^k (n_i - 1)} } = \sqrt{ \frac{(n_1-1)\sigma_1^2 + (n_2-1)\sigma_2^2 + \ldots (n_k-1)\sigma_k^2}{n_1 + n_2 + \ldots + n_k - k} }$
+
+Your function should be able to accept the standard deviation and number of samples from each sample set that is to be combined.  It should also be able to self identify the $k$, and should accept any number of pairings (calculated $\sigma$ and given $n$).
 
 \subsubsection*{T-Test}
-maths
+Your t-test function should accept both of the following:
+\begin{enumerate}
+    \item two data sets, from which all parameters needed to calculate a $t-value$ can be calculated
+    \item $\sigma$ and $n$ for each of the two data sets, from which the $t-value$ can be calculated
+\end{enumerate}
+and should return a $p-value$ for the given datasets (or measures of the datasets).
+
+This function is an exception to the requirement that you not use any special libraries.  If you are using MATLAB or Octave, you may use the following to translate your $t-value$ into and return a $p-value$:
+
+{\texttt tcdf(t, df)}
+
+And if you are using Python:
+
+{\texttt from scipy import stats\\stats.t.cdf}
+
+Or if you have elected to use R:
+
+{\texttt pt()}
 
 \subsubsection*{ANOVA}
-anova
+Your ANOVA function should accept three or more datasets and calculate the $F-stat$, but then should use the equivalent to {\texttt tcdf()} to find the $p-value$.  This function is also an exception, in that you can use a library to find the $p-value$ from the $F-stat$, but like above, you can not use a library to calculate the $F-stat$.
+
+Think carefully about how you can accept some undefined number of datasets and still perform the calculation.
+
+See the slides and Wikipedia for details on how to perform the math. \url{https://en.wikipedia.org/wiki/Analysis_of_variance}.
 
 \subsubsection*{Repeated Measures ANOVA}
+Finally, you need to implement a repeated measures ANOVA, often referred to as rANOVA or RMANOVA.  See Wikipedia for details on the math. \url{https://en.wikipedia.org/wiki/Repeated_measures_design}.
 
 \subsection*{Application of your Functions}
 Using the functions you have developed from above, and the data provided, compute the following and answer the questions posed.
@@ -61,25 +88,19 @@ Using the functions you have developed from above, and the data provided, comput
 How many steps per day, on average do the subjects walk? Use the harmonic and arithmetic mean.  Are they different?  Why?
 
 \subsubsection{Group Variance}
-What is the variance of the group?
-
-(across subjects, pooled sd)
+What is the variance of the group? {\em (across subjects, pooled standard deviation)}
 
 \subsubsection{Comparing the Devices}
-Does the Fitbit report the same step measures as the ActiGraph?
-(t-test)
+Does the Fitbit report the same step measures as the ActiGraph? {\em (t-test)}
 
 \subsubsection{Weekend Warriors}
-Are the subjects equally active across each day of the week?
-(as determined by daily steps in DoW, anova)
+Are the subjects equally active across each day of the week? {\em (as determined by daily steps in day of week, ANOVA)}
 
 \subsubsection{Seasonality}
-In the two year data set, you’ll nd daily step totals. Across the two years, were all months
-traveled equally?
-(repeated measures anova)
+In the two year data set, you’ll find daily step totals. Across the two years, were all months traveled equally? {\em (repeated measures ANOVA)}
 
 \section*{Expectations and Grading Rubric:}
-Great news, you get a break from IEEE format submissions on this homework!  This time I need to see your code, with comments that make it clear what you are doing.  If you choose to complete this assignment in a Notebook (e.g. Jupyter Notebook), you can show your answers to the ``Application of your Functions'' in markdown cells after each step.  If you choose not to use a Notebook, prepare a markdown file (.md) for each or your respsonses to the ``Application of your Functions'' questions.
+Great news, you get a break from IEEE format submissions on this homework!  This time I need to see your code, with comments that make it clear what you are doing.  If you choose to complete this assignment in a Notebook (e.g. Jupyter Notebook), you can show your answers to the ``Application of your Functions'' in markdown cells after each step.  If you choose not to use a Notebook, prepare a markdown file (.md) for each or your responses to the ``Application of your Functions'' questions.
 
 Your submission will be graded as follows:
 
@@ -92,7 +113,7 @@ Your submission will be graded as follows:
                            			    & Points & Expectations  & Expectations  		& Expectations \\
         \toprule
         Code Requirements      	& 40\%\vspace{.25in} 			& The code takes inputs and provides outputs as specified & The code also accepts optional input and makes use of defaults. & The code can self identify characteristics that change how the calculations will be performed. \\
-        Code Clarity            & 40\%\vspace{.25in}			& Minimal comments, but sufficent to understand the basics of what is happening. & The code make good use of comments, including outlining some assumptions and where errors could happen (or how they are being handled). & The comments make reading the code so easy that one doesn't even have to know the programming language to understand the steps. \\
+        Code Clarity            & 40\%\vspace{.25in}			& Minimal comments, but sufficient to understand the basics of what is happening. & The code make good use of comments, including outlining some assumptions and where errors could happen (or how they are being handled). & The comments make reading the code so easy that one doesn't even have to know the programming language to understand the steps. \\
         Analysis and Response   & 20\%\vspace{.25in}			& The analysis is performed correctly and the findings are accurate. & The analysis and findings are correct, and the explanation shows an understanding of what was done and why. & The analysis and findings are correct, the explanation shows depth of thought, and further analysis is suggested in detail. \\
         \bottomrule
     \end{tabular}
