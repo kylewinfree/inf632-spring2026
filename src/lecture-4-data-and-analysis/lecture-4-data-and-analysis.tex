@@ -115,10 +115,10 @@
 	\begin{frame}
 	\frametitle{Typical Analysis}
 		\begin{itemize}
-			\item Measures of central tendancy
+			\item Measures of central tendency
 			\item Measures of variability
 			\item Comparisons
-			\item Trends (Binned, Change Point, Detrended Flucuation)
+			\item Trends (Binned, Change Point, Detrended Fluctuation)
 		\end{itemize}
 	\end{frame}
 
@@ -156,7 +156,7 @@
 	\subsection{Measures of Variance}
 	\begin{frame}
 		\frametitle{Pooled Standard Deviation}
-		Suppose we have three participants and have measured the number of steps they take every day for a month.  We have an average for each, and a standard devation around those means for each participant.  So then, how do we calculate the `average' mean and standard deviation?
+		Suppose we have three participants and have measured the number of steps they take every day for a month.  We have an average for each, and a standard deviation around those means for each participant.  So then, how do we calculate the `average' mean and standard deviation?
 		\includegraphics[width=1\linewidth]{figures/normal-distribution-1.png}
 	\end{frame}
 	
@@ -165,7 +165,7 @@
 		\frametitle{Standardized Measures (Z-Score)}
 		% \begin{columns}
 		% 	\begin{column}{.5\linewidth}
-				What if we wanted to make some comparisons when measures are in differen units?  Or what what if the samples seem to have some bias, and we want to understand deviations from that bias?\\
+				What if we wanted to make some comparisons when measures are in different units?  Or what what if the samples seem to have some bias, and we want to understand deviations from that bias?\\
 			% \end{column}
 			% \begin{column}{.5\linewidth}
 			\centering
@@ -211,10 +211,10 @@
 	
 	\subsection{Analysis of Variance}
 	\begin{frame}
-		\frametitle{Anlaysis of Variance (ANOVA)}
+		\frametitle{Analysis of Variance (ANOVA)}
 		And what if we have three or more groups? A t-test isn't really going to work for us... why?
 
-		We can test if there exists a statistically significan difference amoung the groups first.\vspace{.125in}
+		We can test if there exists a statistically significant difference among the groups first.\vspace{.125in}
 
 		\begin{columns}
 			\begin{column}{.5\linewidth}
@@ -224,6 +224,11 @@
 					~ 		& 12 & 5 & 12 \\
 					~ 		& 12 & 15 & 11 \\
 					~ 		& 9 & 12 & 11 \\
+					~ 		& ~ & 20 & 8 \\
+					~ 		& ~ & 14 & ~ \\
+					\midrule
+					n 		& 5 & 7 & 6 \\
+					$\sum$ 	& 49 & 85 & 54 \\
 				\end{tabular}
 			\end{column}
 			\begin{column}{.5\linewidth}
@@ -233,9 +238,37 @@
 
 				$\alpha = 0.05$
 			\end{column}
-			% \begin{column}{.25\linewidth}
-			% 	\includegraphics[width=1\linewidth]{figures/T0A02.jpg}
-			% \end{column}
+		\end{columns}
+	\end{frame}
+
+		\begin{frame}
+		\frametitle{Analysis of Variance (ANOVA)}
+		And what if we have three or more groups? A t-test isn't really going to work for us... why?
+
+		We can test if there exists a statistically significant difference among the groups first.\vspace{.125in}
+
+		\begin{columns}
+			\begin{column}{.5\linewidth}
+				\begin{tabular}{ r | c | c | c }
+					group 	& 1 & 2 & 3 \\
+					~ 		& 15 & 17 & 9 \\
+					~ 		& 12 & 5 & 12 \\
+					~ 		& 12 & 15 & 11 \\
+					~ 		& 9 & 12 & 11 \\
+					~ 		& ~ & 20 & 8 \\
+					~ 		& ~ & 14 & ~ \\
+					\midrule
+					n 		& 5 & 7 & 6 \\
+					$\sum$ 	& 49 & 85 & 54 \\
+				\end{tabular}
+			\end{column}
+			\begin{column}{.5\linewidth}
+				$\sum x = 188$
+
+				$\sum x^2 = $
+
+				$\alpha = 0.05$
+			\end{column}
 		\end{columns}
 	\end{frame}
 
