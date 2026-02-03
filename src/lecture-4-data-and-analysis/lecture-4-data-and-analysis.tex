@@ -235,7 +235,7 @@
 
 				$H_1$ : $H_0$ is untrue \vspace{.125in}
 
-				$\alpha = 0.05$
+				$\alpha = 0.05$ (1/20 probability what we observe is from chance alone)
 			\end{column}
 		\end{columns}
 	\end{frame}
@@ -247,7 +247,7 @@
 		We can test if there exists a statistically significant difference among the groups first.\vspace{.125in}
 
 		\begin{columns}
-			\begin{column}{.5\linewidth}
+			\begin{column}{.4\linewidth}
 				\begin{tabular}{ r | c | c | c }
 					group 	& 1 & 2 & 3 \\
 					~ 		& 15 & 17 & 9 \\
@@ -257,22 +257,30 @@
 					~ 		& ~ & 20 & 8 \\
 					~ 		& ~ & 14 & ~ \\
 					\midrule
-					$n$ 		& 5 & 7 & 6 \\
-					$\sum$ 	& 49 & 85 & 54 \\
+					$n$ 		& 4 & 6 & 5 \\
+					$\sum$ 	& 48 & 83 & 51 \\
 				\end{tabular}
 			\end{column}
-			\begin{column}{.5\linewidth}
-				$N = \sum_{i=1}^k = 18$
+			\begin{column}{.6\linewidth}
+				$N = \sum_{i=1}^k n_i = 15$
 
-				$\sum X = 188$
+				%$\sum X = 182$
 
-				$\sum X^2 = $
+				%$\sum X^2 = 2404$
 
-				Total Sum of Squares: $SS_T = \sum X^2 - \frac{(\sum X)^2}{n}$
+				Total Sum of Squares:
 
-				Sum of Squares Between Groups: $SS_B = \sum_{i=1}^k \left( \frac{(\sum X_i)^2}{n_i}\right) - \frac{(\sum X)^2}{n}$
+				$SS_T = \sum(X-\bar(X)^2)$
 
-				Sum of Squares Within Groups: $SS_T - SS_B$
+				$ = \sum X^2 - \frac{(\sum X)^2}{N} $ \vspace{.125in} % = 2404 - \frac{182^2}{15} = 2208.3$ \vspace{.125in}
+
+				Sum of Squares Between Groups:
+
+				$SS_B = \sum n_i (\bar{X_i} - \bar{X})^2 = \sum_{i=1}^k \left( \frac{(\sum X_i)^2}{n_i}\right) - \frac{(\sum X)^2}{N}$
+
+				$ = \frac{48^2}{4}+\frac{83^2}{6}+\frac{51^2}{5} - \frac{182^2}{15} $ \vspace{.125in} %= 2244.4 - 2208.3 = 36.1$ \vspace{.125in}
+
+				Sum of Squares Within Groups:\\ $SS_W = SS_T - SS_B$% = 2208.3 - 36.1 = 2172.2$
 			\end{column}
 		\end{columns}
 	\end{frame}
@@ -282,28 +290,32 @@
 		And what if we have three or more groups? A t-test isn't really going to work for us... why?
 
 		We can test if there exists a statistically significant difference among the groups first.\vspace{.125in}
+		\\
+		% \begin{columns}
+			% \begin{column}{.5\linewidth}
+			% 	$\sum X = 188$
 
-		\begin{columns}
-			\begin{column}{.5\linewidth}
-				$\sum X = 188$
+			% 	$\sum X^2 = $
 
-				$\sum X^2 = $
+			% 	Total Sum of Squares: $SS_T = \sum X^2 - \frac{(\sum X)^2}{n}$
 
-				Total Sum of Squares: $SS_T = \sum X^2 - \frac{(\sum X)^2}{n}$
+			% 	Sum of Squares Between Groups: $SS_B = \sum_{i=1}^k \left( \frac{(\sum X_i)^2}{n_i} \right) - \frac{(\sum X)^2}{N}$
 
-				Sum of Squares Between Groups: $SS_B = \sum_{i=1}^k \left( \frac{(\sum X_i)^2}{n_i} \right) - \frac{(\sum X)^2}{N}$
+			% 	Sum of Squares Within Groups: $SS_T - SS_B$
+			% \end{column}
+			% \begin{column}{.5\linewidth}
+			MS is our mean squares
 
-				Sum of Squares Within Groups: $SS_T - SS_B$
-			\end{column}
-			\begin{column}{.5\linewidth}
-				\begin{tabular}{ p{.75in} c c c c }
+
+				\begin{tabular}{ p{.75in} | c | c | c | c }
 					source of variation 	& $SS$ & $df$ & $MS$ & $F$ \\
 					between groups 			& $SS_B$ & $k-1=2$ & $\frac{SS_B}{2}$ & $\frac{MS_B}{MS_W}$ \\
-					within groups (error) 	& $SS_W$ & $N-k=$ & $\frac{SS_W}{24}$ & ~ \\
+					within groups (error) 	& $SS_W$ & $N-k=$ & $\frac{SS_W}{12}$ & ~ \\
 				\end{tabular}
+
 				And then use an $F-stat$ lookup table / function.
-			\end{column}
-		\end{columns}
+		% 	\end{column}
+		% \end{columns}
 	\end{frame}
 
 \end{document}
