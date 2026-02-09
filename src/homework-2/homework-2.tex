@@ -9,6 +9,7 @@
 \usepackage{hyperref}
 \usepackage{xurl}
 \usepackage{booktabs}
+\usepackage{amsmath}
 \pagestyle{plain}
 \setlength\parindent{0pt}
 
@@ -35,29 +36,47 @@
 Wearable devices have seen great utility in behavioral health science. Though they also provide very different data from what is typically collected in such fields, many of the behavioral health statistical methods apply to data from these sources too.
 
 \section*{Assignment:}
-Your assignment will be to write several functions to perform statistical tests on a collection of data sets and then use those functions to evaluate the dataset given. You may use Octave/MATLAB, Python, R, or any of these in Notebooks, but you must write the functions to compute and perform the statistics outlined below from scratch.  You shouldn't need any libraries beyond basics for reading CSVs and two statistic value lookups.
+Your assignment will be to write several functions to perform statistical tests on a collection of data sets and then use those functions to evaluate the dataset given. You may use Octave/MATLAB, Python, R, or any of these in Notebooks, but you must write the functions to compute and perform the statistics outlined below from scratch.  You shouldn't need any libraries beyond basics for reading CSVs and two statistic value lookups.  You can also use pandas, but I don't want you seeking out ActiGraph specific or statistics specific libraries for what you should be writing from scratch.
 
 \subsection*{Functions}
 \subsubsection*{Harmonic Mean}
 Your function should accept N complete datasets (vectors / arrays / dataframes / your choice) and return the harmonic mean of each.  Use the following to calculate the harmonic mean(s):
 
-$\bar{H} == \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \ldots \frac{1}{x_n}} = \frac{n}{\sum_{i=1}^n \frac{1}{x_i}}$
+\begin{align*}
+\bar{H} &= \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \ldots \frac{1}{x_n}} \\
+&= \frac{n}{\sum_{i=1}^n \frac{1}{x_i}}
+\end{align*}
 
 \subsubsection*{Pooled Standard Deviation}
 
 Remember that pooled standard deviation can be calculated as follows:
 
-$\sigma_p = \sqrt{ \frac{\sum_{i=1}^k (n_i - 1)\sigma_i^2}{\sum_{i=1}^k (n_i - 1)} } = \sqrt{ \frac{(n_1-1)\sigma_1^2 + (n_2-1)\sigma_2^2 + \ldots (n_k-1)\sigma_k^2}{n_1 + n_2 + \ldots + n_k - k} }$
+\begin{align*}
+\sigma_p &= \sqrt{ \frac{\sum_{i=1}^k (n_i - 1)\sigma_i^2}{\sum_{i=1}^k (n_i - 1)} } \\
+&= \sqrt{ \frac{(n_1-1)\sigma_1^2 + (n_2-1)\sigma_2^2 + \ldots (n_k-1)\sigma_k^2}{n_1 + n_2 + \ldots + n_k - k} }
+\end{align*}
 
 Your function should be able to accept the standard deviation and number of samples from each sample set that is to be combined.  It should also be able to self identify the $k$, and should accept any number of pairings (calculated $\sigma$ and given $n$).
+
+Because I want you to build your stats and programming knowledge, you should also write a basic standard deviation function.  Here's a reminder of the math needed to calculate the standard deviation of a sample.
+
+\begin{equation*}
+\sigma = \sqrt{ \frac{1}{n} \sum_{i=1}^{n} (x_i - \mu)^2 }
+\end{equation*}
 
 \subsubsection*{T-Test}
 Your t-test function should accept both of the following:
 \begin{enumerate}
     \item two data sets, from which all parameters needed to calculate a $t-value$ can be calculated
-    \item $\sigma$ and $n$ for each of the two data sets, from which the $t-value$ can be calculated
+    \item $\mu$, $\sigma$, and $n$ for each of the two data sets, from which the $t-value$ can be calculated
 \end{enumerate}
 and should return a $p-value$ for the given datasets (or measures of the datasets).
+
+\begin{align*}
+    df &= n_1 + n_2 - 2 \\
+    \sigma_p &= \sqrt{ \frac{(n_1-1)\sigma_1^2 + (n_2-1)\sigma_2^2}{df} } \\
+    t &= \frac{(\mu_1 - \mu_2)}{\sigma_p \cdot \sqrt{(\frac{1}{n_1}) + (\frac{1}{n_2})}}
+\end{align*}
 
 This function is an exception to the requirement that you not use any special libraries.  If you are using MATLAB or Octave, you may use the following to translate your $t-value$ into and return a $p-value$:
 
@@ -71,30 +90,84 @@ Or if you have elected to use R:
 
 {\texttt pt()}
 
+Consider how you might change this function to {\em optionally} make use of your harmonic mean function.  Can you provide an input flag that allows you to specify to use either a basic arithmetic mean or your harmonic mean?  How about a default of one or the other?
+
 \subsubsection*{ANOVA}
 Your ANOVA function should accept three or more datasets and calculate the $F-stat$, but then should use the equivalent to {\texttt tcdf()} to find the $p-value$.  This function is also an exception, in that you can use a library to find the $p-value$ from the $F-stat$, but like above, you can not use a library to calculate the $F-stat$.
 
 Think carefully about how you can accept some undefined number of datasets and still perform the calculation.
 
-See the slides and Wikipedia for details on how to perform the math. \url{https://en.wikipedia.org/wiki/Analysis_of_variance}.
+See the slides and Wikipedia\footnote{\url{https://en.wikipedia.org/wiki/Analysis_of_variance}} for details on how to perform the math, though I have provided you with an overview here:
+
+\begin{align*}
+    m &= \mathrm{number~of~groups} \\
+    N &= \mathrm{number~of~observations} \\
+    n_j &= \mathrm{number~of~observations~in~group~j} \\
+    x_{ij} &= \mathrm{measure~for~observation~i~group~j} \\
+    %\bar{x}_i &= \mathrm{mean~for~ith~observation} \\
+    \bar{x}_j &= \mathrm{mean~for~jth~group} \\
+    \bar{X} &= \mathrm{overall~mean} = \frac{\sum x_{ij}}{N} \\
+    ~&\\
+    SS_{total} &= \sum_{i,j}^{N} (x_{ij} - \bar{X})^2 = \sum x_{ij}^2 - \frac{(\sum x_{ij})^2}{N}\\
+    SS_{between} &= \sum_{j=1}^m n_j \left(\bar{x}_j - \bar{X}\right)^2 = \sum_{j=1}^m \left( \frac{(\sum_{i=1}^{n_j} x_{ij})^2}{n_j} \right) - \frac{(\sum x_{ij})^2}{N} \\
+    SS_{within} &=  SS_{total} - SS_{between} \\
+    ~&\\
+    df_{between} &= m-1 \\
+    df_{within} &= N-m \\
+    ~&\\
+    MS_{between} &= \frac{SS_{between}}{df_{between}} \\
+    MS_{within} &= \frac{SS_{within}}{df_{within}} \\
+    ~&\\
+    F &= \frac{MS_{between}}{MS_{within}}
+\end{align*}
 
 \subsubsection*{Repeated Measures ANOVA}
-Finally, you need to implement a repeated measures ANOVA, often referred to as rANOVA or RMANOVA.  See Wikipedia for details on the math. \url{https://en.wikipedia.org/wiki/Repeated_measures_design}.
+Finally, you need to implement a repeated measures ANOVA, often referred to as rANOVA or RMANOVA.  See Wikipedia\footnote{\url{https://en.wikipedia.org/wiki/Repeated_measures_design}} for details on the math, though I have provided you with an overview here:
+
+\begin{align*}
+    n &= \mathrm{number~of~subjects} \\
+    k &= \mathrm{number~of~conditions} \\
+    %n_i &= \mathrm{number~of~subjects~in~ith~condition} \\
+    x_{ij} &= \mathrm{measure~for~subject~i~condition~j} \\
+    \bar{x}_j &= \mathrm{mean~for~ith~condition} \\
+    \bar{x}_i &= \mathrm{mean~for~jth~subject} \\
+    \bar{X} &= \mathrm{overall~mean} \\
+    %J &= \mathrm{number~of~samples~per~subject} \\
+    % SS &= \mathrm{sum~of~squares} \\
+    % df &= \mathrm{degrees~of~freedom} \\
+    % MS &= \mathrm{mean~squares} \\
+    ~&\\
+    SS_{subjects} &= \sum_{i=1}^n \sum_{j=1}^k (x_{ij} - \bar{x}_i)^2 \\
+    SS_{conditions} &=  n \sum_{j=1}^k (\bar{x}_j - \bar{X})^2 \\
+    % SS_{total} &= \sum_{n=1}^k \sum_{j=1}^J (x_{n,j} - \mu_{grand})^2 \\
+    SS_{error} &= SS_{subjects} - SS_{conditions} \\
+    ~&\\
+    df_{conditions} &= k-1 \\
+    df_{subjects} &= n-1 \\
+    % df_{grand} &= (N \cdot J)-1 \\
+    df_{error} &= df_{conditions} \cdot df_{subjects} \\
+    ~&\\
+    MS_{conditions} &= \frac{SS_{conditions}}{df_{conditions}} \\
+    %MS_{subjects} &= \frac{SS_{subjects}}{df_{subjects}} \\
+    MS_{error} &= \frac{SS_{error}}{df_{error}} \\
+    ~&\\
+    F &= \frac{MS_{conditions}}{MS_{error}}
+\end{align*}
 
 \subsection*{Application of your Functions}
 Using the functions you have developed from above, and the data provided in the git repository (`Sample Data' directory), compute the following and answer the questions posed.  The first four questions should make use of the concurrently measured data sets (`actigraph and fitbit' directory), while the last question makes use of the Fitbit only data set (`multiyear' directory).
 
 \subsubsection*{Daily Steps}
-How many steps per day, on average do the subjects walk? Use the harmonic and arithmetic mean.  Are they different?  Why?
+Pick one of the devices: How many steps per day, on average do the subjects walk? Use the harmonic and arithmetic mean.  Are they different?  Why?
 
 \subsubsection*{Group Variance}
-What is the variance of the group? {\em (across subjects, pooled standard deviation)}
+Pick one of the devices: What is the variance of the group? {\em (across subjects, pooled standard deviation)}
 
 \subsubsection*{Comparing the Devices}
-Does the Fitbit report the same step measures as the ActiGraph? {\em (t-test)}
+Use both of the devices: Does the Fitbit report the same step measures as the ActiGraph? {\em (t-test)}
 
 \subsubsection*{Weekend Warriors}
-Are the subjects equally active across each day of the week? {\em (as determined by daily steps in day of week, ANOVA)}
+Pick one of the devices: Are the subjects equally active across each day of the week? {\em (as determined by daily steps in day of week, ANOVA)}
 
 \subsubsection*{Seasonality}
 In the two year data set (`multiyear' directory), you’ll find daily step totals. Across the two years, were all months traveled equally? {\em (repeated measures ANOVA)}
