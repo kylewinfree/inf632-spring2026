@@ -52,3 +52,6 @@ You are welcome to use other sensors that I have not outlined above.  I suggest 
 
 ## Where do I get my sensors?
 I am a big fan of [Sparkfun](https://www.sparkfun.com/sensors.html) and [Adafruit](https://www.adafruit.com/category/35).  Both provide solid examples of how to use their breakout boards.  On that note, get breakout boards (these have all the electronics for the sensor on a single printed circuit board) when ever possible.  The exceptions might be the flex, pressure, and light sensors.
+
+## What if I can't afford this?
+If you cannot afford to purchase the equipment for this project, come talk to me!  I may be able to lend you equipment from my lab or may be able to purchase equipment for you.  I can't do either if I don't know you need help though, and both may take time.
