@@ -1,7 +1,7 @@
 # LaTeX Links
 
 ## Installation
-[LaTeX Project](https://www.latex-project.org)
+The [LaTeX Project](https://www.latex-project.org) website has everything, but I think of it as more of a developers source.  Instead, use one of the installers below.
 
 ### Windows
 Windows users might find [MiKTeX](https://miktex.org/download) the easiest to work with. 
