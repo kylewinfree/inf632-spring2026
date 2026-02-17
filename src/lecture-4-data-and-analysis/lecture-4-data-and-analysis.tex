@@ -307,11 +307,27 @@
 			MS is our mean squares
 
 
-				\begin{tabular}{ p{.75in} | c | c | c | c }
-					source of variation 	& $SS$ & $df$ & $MS$ & $F$ \\
-					between groups 			& $SS_B$ & $k-1=2$ & $\frac{SS_B}{2}$ & $\frac{MS_B}{MS_W}$ \\
-					within groups (error) 	& $SS_W$ & $N-k=$ & $\frac{SS_W}{12}$ & ~ \\
-				\end{tabular}
+			\begin{align*}
+			    m &= \mathrm{number~of~groups} \\
+			    N &= \mathrm{number~of~observations} \\
+			    n_j &= \mathrm{number~of~observations~in~group~j} \\
+			    x_{ij} &= \mathrm{measure~for~observation~i~group~j} \\
+			    %\bar{x}_i &= \mathrm{mean~for~ith~observation} \\
+			    \bar{x}_j &= \mathrm{mean~for~jth~group} \\
+			    \bar{X} &= \mathrm{overall~mean} = \frac{\sum x_{ij}}{N} \\
+			    ~&\\
+			    SS_{total} &= \sum_{i,j}^{N} (x_{ij} - \bar{X})^2 = \sum x_{ij}^2 - \frac{(\sum x_{ij})^2}{N}\\
+			    SS_{between} &= \sum_{j=1}^m n_j \left(\bar{x}_j - \bar{X}\right)^2 = \sum_{j=1}^m \left( \frac{(\sum_{i=1}^{n_j} x_{ij})^2}{n_j} \right) - \frac{(\sum x_{ij})^2}{N} \\
+			    SS_{within} &=  SS_{total} - SS_{between} \\
+			    ~&\\
+			    df_{between} &= m-1 \\
+			    df_{within} &= N-m \\
+			    ~&\\
+			    MS_{between} &= \frac{SS_{between}}{df_{between}} \\
+			    MS_{within} &= \frac{SS_{within}}{df_{within}} \\
+			    ~&\\
+			    F &= \frac{MS_{between}}{MS_{within}}
+			\end{align*}
 
 				And then use an $F-stat$ lookup table / function.
 		% 	\end{column}
@@ -323,11 +339,35 @@
 		\frametitle{Repeated Measures ANOVA}
 		Suppose we have made measures at several time points on a group of subjects, such that we have something like this:
 
-		\begin{tabular}{ p{.75in} | c | c | c | c }
-			source of variation 	& $SS$ & $df$ & $MS$ & $F$ \\
-			between groups 			& $SS_B$ & $k-1=2$ & $\frac{SS_B}{2}$ & $\frac{MS_B}{MS_W}$ \\
-			within groups (error) 	& $SS_W$ & $N-k=$ & $\frac{SS_W}{12}$ & ~ \\
-		\end{tabular}
+		\begin{align*}
+		    n &= \mathrm{number~of~subjects} \\
+		    k &= \mathrm{number~of~conditions} \\
+		    %n_i &= \mathrm{number~of~subjects~in~ith~condition} \\
+		    x_{ij} &= \mathrm{measure~for~subject~i~condition~j} \\
+		    \bar{x}_j &= \mathrm{mean~for~ith~condition} \\
+		    \bar{x}_i &= \mathrm{mean~for~jth~subject} \\
+		    \bar{X} &= \mathrm{overall~mean} \\
+		    %J &= \mathrm{number~of~samples~per~subject} \\
+		    % SS &= \mathrm{sum~of~squares} \\
+		    % df &= \mathrm{degrees~of~freedom} \\
+		    % MS &= \mathrm{mean~squares} \\
+		    ~&\\
+		    SS_{subjects} &= \sum_{i=1}^n \sum_{j=1}^k (x_{ij} - \bar{x}_i)^2 \\
+		    SS_{conditions} &=  n \sum_{j=1}^k (\bar{x}_j - \bar{X})^2 \\
+		    % SS_{total} &= \sum_{n=1}^k \sum_{j=1}^J (x_{n,j} - \mu_{grand})^2 \\
+		    SS_{error} &= SS_{subjects} - SS_{conditions} \\
+		    ~&\\
+		    df_{conditions} &= k-1 \\
+		    df_{subjects} &= n-1 \\
+		    % df_{grand} &= (N \cdot J)-1 \\
+		    df_{error} &= df_{conditions} \cdot df_{subjects} \\
+		    ~&\\
+		    MS_{conditions} &= \frac{SS_{conditions}}{df_{conditions}} \\
+		    %MS_{subjects} &= \frac{SS_{subjects}}{df_{subjects}} \\
+		    MS_{error} &= \frac{SS_{error}}{df_{error}} \\
+		    ~&\\
+		    F &= \frac{MS_{conditions}}{MS_{error}}
+		\end{align*}
 	\end{frame}
 
 \end{document}
