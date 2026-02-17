@@ -1,0 +1,373 @@
+\documentclass{beamer} % [mathserif]
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{media9}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.18}
+% \usepgfplotslibrary{dateplot}
+% \usepackage{tipa}
+% \usepackage{epstopdf} % this is needed for windows Texworks
+\usepackage[absolute,overlay]{textpos} % ,showboxes
+
+\setlength{\TPHorizModule}{1in}
+\TPVertModule=\TPHorizModule
+
+\DeclareGraphicsExtensions{.eps}
+
+\usetheme{Marburg}
+% \usetheme{Berkeley}
+% \usecolortheme{rose}
+\definecolor{naublue}{HTML}{002454}
+\definecolor{nauyellow}{HTML}{FAC01A}
+%\setbeamercolor{structure}{bg=nauyellow, fg=naublue}
+\setbeamercolor{palette primary}{bg=nauyellow, fg=naublue}
+\setbeamercolor{palette secondary}{bg=nauyellow, fg=naublue}
+%%%% See https://en.wikibooks.org/wiki/LaTeX/Presentations#User-defined_themes
+% \setbeamercolor{alerted text}{fg=orange}
+% \setbeamercolor{background canvas}{bg=white}
+% \setbeamercolor{block body alerted}{bg=normal text.bg!90!black}
+% \setbeamercolor{block body}{bg=normal text.bg!90!black}
+% \setbeamercolor{block body example}{bg=normal text.bg!90!black}
+% \setbeamercolor{block title alerted}{use={normal text,alerted text},fg=alerted text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+% \setbeamercolor{block title}{bg=blue}
+% \setbeamercolor{block title example}{use={normal text,example text},fg=example text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+% \setbeamercolor{fine separation line}{}
+\setbeamercolor{frametitle}{fg=naublue}
+% \setbeamercolor{item projected}{fg=black}
+% \setbeamercolor{normal text}{bg=black,fg=yellow}
+% \setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar primary}{bg=naublue, fg=nauyellow}
+% \setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+% \setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+% \setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{section in sidebar}{fg=nauyellow, bg=naublue}
+\setbeamercolor{section in sidebar shaded}{fg=white}
+% \setbeamercolor{separation line}{}
+% \setbeamercolor{sidebar}{bg=red}
+% \setbeamercolor{sidebar}{parent=palette primary}
+% \setbeamercolor{structure}{bg=black, fg=green}
+% \setbeamercolor{subsection in sidebar}{fg=brown}
+% \setbeamercolor{subsection in sidebar shaded}{fg=grey}
+\setbeamercolor{title}{fg=naublue}
+% \setbeamercolor{titlelike}{fg=brown}
+
+% \usepackage[latin1]{inputenc}
+
+%%%% See https://en.wikibooks.org/wiki/LaTeX/Presentations#Title_page_and_author_information
+\title[INF632 (EE499/EE599)]{Wearable Technologies and Applications\\(Wearable Informatics)} %
+\author{Winfree}
+\date{Lecture 6}
+%\institute{Northern Arizona University}
+
+%\logo{\includegraphics[width=.5in]{figures/logo}}
+% \setbeameroption{show notes on second screen}
+
+\begin{document}
+	\maketitle
+
+
+% \section[Outline]{}
+% \frame{\tableofcontents}
+
+% \begin{frame}
+%   \frametitle{Image Example}
+%   \includegraphics[width=0.8\linewidth]{figures/_seikowrist.jpg}
+% \end{frame}
+
+\section{Clinical Standards of Wearable Devices (PA)}
+	\subsection{Devices (Actigraphy)}
+	\begin{frame}
+		\frametitle{Devices}
+		
+		Clinical and Research devices often require wired connections, but wireless is taking over as security is addressed.
+		\centering
+		\includegraphics[width=.25\linewidth]{figures/actigraph cough.png}
+		\includegraphics[width=.5\linewidth]{figures/Best_Actigraphy_2025.jpg}\\
+		\includegraphics[width=.5\linewidth]{figures/ABUIABACGAAgwIWqtwYo_dulpwQw6AY45gM.jpg}		
+		\includegraphics[width=.25\linewidth]{figures/PALpatch_45355-768x753.png}
+	\end{frame}
+
+	
+	\subsection{Data}
+	\begin{frame}
+		\frametitle{Data}
+		\begin{columns}
+			\begin{column}{.5\linewidth}
+				Typically time based
+				\begin{itemize}
+					\item A header often defines parameters
+					\item Each row is an entry
+					\item Each column is a measure
+				\end{itemize}
+			\end{column}
+			\begin{column}{.5\linewidth}
+				Sometimes the data are stored in a mixed format, text and low level binary
+				\includegraphics[width=1\linewidth]{figures/actigraph_format.png}
+			\end{column}
+		\end{columns}
+	\end{frame}
+	
+	\subsection{Typical Analysis}
+	\begin{frame}
+	\frametitle{Typical Analysis}
+		\begin{itemize}
+			\item Measures of central tendency
+			\item Measures of variability
+			\item Comparisons
+			\item Trends (Binned, Change Point, Detrended Fluctuation)
+		\end{itemize}
+	\end{frame}
+
+\section{Analysis}
+	\subsection{Central Tendency}
+	\begin{frame}
+		\frametitle{Central Tendency}
+		\begin{itemize}
+			\item Arithmetic Mean:\\ $\bar{A} = \frac{1}{n} \sum_{i=1}^{n}a_i$\vspace{.125in}
+			\item Geometric Mean\footnote{useful whenever the quantities to be averaged combine multiplicatively}:\\ $\bar{G} = \left(\prod_{i=1}^n x_i\right)^{\frac{1}{n}} = \sqrt[n]{x_1 x_2 \ldots x_n}$\vspace{.125in}
+			\item Harmonic Mean\footnote{most appropriate average for ratios and rates such as speeds, robust to outliers}:\\ $\bar{H} == \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \ldots \frac{1}{x_n}} = \frac{n}{\sum_{i=1}^n \frac{1}{x_i}}$\vspace{.125in}
+			\item Median
+			\item Mode
+		\end{itemize}
+	\end{frame}
+	
+	\subsection{Measures of Variance}
+	\begin{frame}
+		\frametitle{Measures of Variance}
+		\begin{itemize}
+			\item Range:\\ $\text{range} = max(X) - min(X)$\vspace{.125in}
+			\item Variance:\\ $\text{Var}(X) = \sigma^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \mu)^2$\vspace{.125in}
+			\item Standard Deviation:\\ $\sigma = \sqrt{\sigma^2} = \sqrt{ \frac{1}{n} \sum_{i=1}^{n} (x_i - \mu)^2 }$\vspace{.125in}
+			\item Pooled Standard Deviation:\\ $\sigma_p = \sqrt{ \frac{\sum_{i=1}^k (n_i - 1)\sigma_i^2}{\sum_{i=1}^k (n_i - 1)} } = \sqrt{ \frac{(n_1-1)\sigma_1^2 + (n_2-1)\sigma_2^2 + \ldots (n_k-1)\sigma_k^2}{n_1 + n_2 + \ldots + n_k - k} }$
+		\end{itemize}
+	\end{frame}
+
+	\subsection{Measures of Variance}
+	\begin{frame}
+		\frametitle{Standard Deviation}
+		This is a ``normal'' curve, coming from theory driven by observations. One standard deviation is the inflection point on the curve.
+		\includegraphics[width=1\linewidth]{figures/standard-deviation-in-normal-distributions.png}
+	\end{frame}
+	% % sampling theory should be in here too
+	\subsection{Measures of Variance}
+	\begin{frame}
+		\frametitle{Pooled Standard Deviation}
+		Suppose we have three participants and have measured the number of steps they take every day for a month.  We have an average for each, and a standard deviation around those means for each participant.  So then, how do we calculate the `average' mean and standard deviation?
+		\includegraphics[width=1\linewidth]{figures/normal-distribution-1.png}
+	\end{frame}
+	
+	\subsection{Standardized Measures}
+	\begin{frame}
+		\frametitle{Standardized Measures (Z-Score)}
+		% \begin{columns}
+		% 	\begin{column}{.5\linewidth}
+				What if we wanted to make some comparisons when measures are in different units?  Or what what if the samples seem to have some bias, and we want to understand deviations from that bias?\\
+			% \end{column}
+			% \begin{column}{.5\linewidth}
+			\centering
+				$z_i = \frac{x_i - \mu}{\sigma}$
+
+				\includegraphics[width=1\linewidth]{figures/standard-deviation-in-normal-distributions.png}
+		% 	\end{column}
+		% \end{columns}
+	\end{frame}
+	
+	\subsection{Comparison Tests}
+	\begin{frame}
+		\frametitle{Comparison Tests}
+		Suppose that we have samples of blood pressure before a treatment, and then after.\\Likewise, what if we had two different groups we wanted to compare?
+		\includegraphics[width=1\linewidth]{figures/bp-t-test.jpeg}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Comparison Tests}
+		Suppose that we have samples of blood pressure before a treatment, and then after.\\Likewise, what if we had two different groups we wanted to compare?
+
+		We can use a t-test! This tests if the two samples are likely to have been sampled from the same population.
+
+		\begin{columns}
+			\begin{column}{.25\linewidth}
+				\includegraphics[width=1\linewidth]{figures/bp-t-test.jpeg}
+			\end{column}
+			\begin{column}{.5\linewidth}
+				$ df = n_1 + n_2 - 2$ \vspace{.125in}
+
+				$ \sigma_p = \sqrt{ \frac{(n_1-1)\sigma_1^2 + (n_2-1)\sigma_2^2}{df} }$ \vspace{.125in}
+
+				$ t = \frac{(\mu_1 - \mu_2)}{\sigma_p \cdot \sqrt{(\frac{1}{n_1}) + (\frac{1}{n_2})}} $ \vspace{.125in}
+
+				$cdf = tcdf(t, df)$
+			\end{column}
+			\begin{column}{.25\linewidth}
+				\includegraphics[width=1\linewidth]{figures/T0A02.jpg}
+			\end{column}
+		\end{columns}
+	\end{frame}
+	
+	\subsection{Analysis of Variance}
+	\begin{frame}
+		\frametitle{Analysis of Variance (ANOVA)}
+		And what if we have three or more groups? A t-test isn't really going to work for us... why?
+
+		We can test if there exists a statistically significant difference among the groups first.\vspace{.125in}
+
+		\begin{columns}
+			\begin{column}{.5\linewidth}
+				\begin{tabular}{ r | c | c | c }
+					group 	& 1 & 2 & 3 \\
+					~ 		& 15 & 17 & 9 \\
+					~ 		& 12 & 5 & 12 \\
+					~ 		& 12 & 15 & 11 \\
+					~ 		& 9 & 12 & 11 \\
+					~ 		& ~ & 20 & 8 \\
+					~ 		& ~ & 14 & ~ \\
+					\midrule
+					n 		& 5 & 7 & 6 \\
+					$\sum$ 	& 49 & 85 & 54 \\
+				\end{tabular}
+			\end{column}
+			\begin{column}{.5\linewidth}
+				$H_0$ : $\mu_1 = \mu_2 = \mu_3$ \vspace{.125in}
+
+				$H_1$ : $H_0$ is untrue \vspace{.125in}
+
+				$\alpha = 0.05$ (1/20 probability what we observe is from chance alone)
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Analysis of Variance (ANOVA)}
+		And what if we have three or more groups? A t-test isn't really going to work for us... why?
+
+		We can test if there exists a statistically significant difference among the groups first.\vspace{.125in}
+
+		\begin{columns}
+			\begin{column}{.4\linewidth}
+				\begin{tabular}{ r | c | c | c }
+					group 	& 1 & 2 & 3 \\
+					~ 		& 15 & 17 & 9 \\
+					~ 		& 12 & 5 & 12 \\
+					~ 		& 12 & 15 & 11 \\
+					~ 		& 9 & 12 & 11 \\
+					~ 		& ~ & 20 & 8 \\
+					~ 		& ~ & 14 & ~ \\
+					\midrule
+					$n$ 		& 4 & 6 & 5 \\
+					$\sum$ 	& 48 & 83 & 51 \\
+				\end{tabular}
+			\end{column}
+			\begin{column}{.6\linewidth}
+				$N = \sum_{i=1}^k n_i = 15$
+
+				%$\sum X = 182$
+
+				%$\sum X^2 = 2404$
+
+				Total Sum of Squares:
+
+				$SS_T = \sum(X-\bar(X)^2)$
+
+				$ = \sum X^2 - \frac{(\sum X)^2}{N} $ \vspace{.125in} % = 2404 - \frac{182^2}{15} = 2208.3$ \vspace{.125in}
+
+				Sum of Squares Between Groups:
+
+				$SS_B = \sum n_i (\bar{X_i} - \bar{X})^2 = \sum_{i=1}^k \left( \frac{(\sum X_i)^2}{n_i}\right) - \frac{(\sum X)^2}{N}$
+
+				$ = \frac{48^2}{4}+\frac{83^2}{6}+\frac{51^2}{5} - \frac{182^2}{15} $ \vspace{.125in} %= 2244.4 - 2208.3 = 36.1$ \vspace{.125in}
+
+				Sum of Squares Within Groups:\\ $SS_W = SS_T - SS_B$% = 2208.3 - 36.1 = 2172.2$
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Analysis of Variance (ANOVA)}
+		And what if we have three or more groups? A t-test isn't really going to work for us... why?
+
+		We can test if there exists a statistically significant difference among the groups first.\vspace{.125in}
+		\\
+		% \begin{columns}
+			% \begin{column}{.5\linewidth}
+			% 	$\sum X = 188$
+
+			% 	$\sum X^2 = $
+
+			% 	Total Sum of Squares: $SS_T = \sum X^2 - \frac{(\sum X)^2}{n}$
+
+			% 	Sum of Squares Between Groups: $SS_B = \sum_{i=1}^k \left( \frac{(\sum X_i)^2}{n_i} \right) - \frac{(\sum X)^2}{N}$
+
+			% 	Sum of Squares Within Groups: $SS_T - SS_B$
+			% \end{column}
+			% \begin{column}{.5\linewidth}
+			MS is our mean squares
+
+
+			\begin{align*}
+			    m &= \mathrm{number~of~groups} \\
+			    N &= \mathrm{number~of~observations} \\
+			    n_j &= \mathrm{number~of~observations~in~group~j} \\
+			    x_{ij} &= \mathrm{measure~for~observation~i~group~j} \\
+			    %\bar{x}_i &= \mathrm{mean~for~ith~observation} \\
+			    \bar{x}_j &= \mathrm{mean~for~jth~group} \\
+			    \bar{X} &= \mathrm{overall~mean} = \frac{\sum x_{ij}}{N} \\
+			    ~&\\
+			    SS_{total} &= \sum_{i,j}^{N} (x_{ij} - \bar{X})^2 = \sum x_{ij}^2 - \frac{(\sum x_{ij})^2}{N}\\
+			    SS_{between} &= \sum_{j=1}^m n_j \left(\bar{x}_j - \bar{X}\right)^2 = \sum_{j=1}^m \left( \frac{(\sum_{i=1}^{n_j} x_{ij})^2}{n_j} \right) - \frac{(\sum x_{ij})^2}{N} \\
+			    SS_{within} &=  SS_{total} - SS_{between} \\
+			    ~&\\
+			    df_{between} &= m-1 \\
+			    df_{within} &= N-m \\
+			    ~&\\
+			    MS_{between} &= \frac{SS_{between}}{df_{between}} \\
+			    MS_{within} &= \frac{SS_{within}}{df_{within}} \\
+			    ~&\\
+			    F &= \frac{MS_{between}}{MS_{within}}
+			\end{align*}
+
+				And then use an $F-stat$ lookup table / function.
+		% 	\end{column}
+		% \end{columns}
+	\end{frame}
+
+	\subsection*{Repeated Measures ANOVA}
+	\begin{frame}
+		\frametitle{Repeated Measures ANOVA}
+		Suppose we have made measures at several time points on a group of subjects, such that we have something like this:
+
+		\begin{align*}
+		    n &= \mathrm{number~of~subjects} \\
+		    k &= \mathrm{number~of~conditions} \\
+		    %n_i &= \mathrm{number~of~subjects~in~ith~condition} \\
+		    x_{ij} &= \mathrm{measure~for~subject~i~condition~j} \\
+		    \bar{x}_j &= \mathrm{mean~for~ith~condition} \\
+		    \bar{x}_i &= \mathrm{mean~for~jth~subject} \\
+		    \bar{X} &= \mathrm{overall~mean} \\
+		    %J &= \mathrm{number~of~samples~per~subject} \\
+		    % SS &= \mathrm{sum~of~squares} \\
+		    % df &= \mathrm{degrees~of~freedom} \\
+		    % MS &= \mathrm{mean~squares} \\
+		    ~&\\
+		    SS_{subjects} &= \sum_{i=1}^n \sum_{j=1}^k (x_{ij} - \bar{x}_i)^2 \\
+		    SS_{conditions} &=  n \sum_{j=1}^k (\bar{x}_j - \bar{X})^2 \\
+		    % SS_{total} &= \sum_{n=1}^k \sum_{j=1}^J (x_{n,j} - \mu_{grand})^2 \\
+		    SS_{error} &= SS_{subjects} - SS_{conditions} \\
+		    ~&\\
+		    df_{conditions} &= k-1 \\
+		    df_{subjects} &= n-1 \\
+		    % df_{grand} &= (N \cdot J)-1 \\
+		    df_{error} &= df_{conditions} \cdot df_{subjects} \\
+		    ~&\\
+		    MS_{conditions} &= \frac{SS_{conditions}}{df_{conditions}} \\
+		    %MS_{subjects} &= \frac{SS_{subjects}}{df_{subjects}} \\
+		    MS_{error} &= \frac{SS_{error}}{df_{error}} \\
+		    ~&\\
+		    F &= \frac{MS_{conditions}}{MS_{error}}
+		\end{align*}
+	\end{frame}
+
+\end{document}
