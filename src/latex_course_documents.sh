@@ -14,6 +14,7 @@ directories=(
     "lecture-3-haptics"
     "lecture-4-data-and-analysis"
     "lecture-5-agreements-correlations-regression"
+    "lecture-6-cpa"
     "research-project"
     "week-1-discussion"
     "week-2-discussion"
