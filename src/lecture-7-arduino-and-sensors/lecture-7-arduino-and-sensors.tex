@@ -12,27 +12,52 @@
 \pagestyle{plain}
 \setlength\parindent{0pt}
 
-\begin{document}
-\input{../syllabus/schedule_dates}
+\usepackage{listings}          % for creating language style
+\input{ArduinoLatexListing/arduinoLanguage.tex}    % adds the arduino language listing
 
-\Huge INF632 Homework 3
+%% Define an Arduino style fore use later %%
+\lstdefinestyle{myArduino}{
+  language=Arduino,
+  %% Add other words needing highlighting below %%
+  morekeywords=[1]{},                  % [1] -> dark green
+  morekeywords=[2]{FILE_WRITE},        % [2] -> light blue
+  morekeywords=[3]{SD, File},          % [3] -> bold orange
+  morekeywords=[4]{open, exists},      % [4] -> orange
+  %% The lines below add a nifty box around the code %%
+  frame=shadowbox,
+  rulesepcolor=\color{arduinoBlue},
+}
+
+\Huge Getting Going in Arduino
 \normalsize ~
 
 \noindent\rule{\textwidth}{1pt}\vspace{.5em}
 
-\LARGE Statistical Learning \& Prediction
-\normalsize ~
+\section{Code Outline}
+There are three major parts to Arduino code layout.  Let's start with the second section.
 
-% Course information
-\begin{description}
-	\item [Assigned:] \wkSixTh. % the last lecture day of the first week.
-	\item [Due:] \wkNineTh~ at 11:59pm. Submissions turned in after this time and still within two weeks of this deadline will be automatically docked 50\% of the possible points. % the last lecture day of the third week
-	\item [Submission:] Share a direct link to your repo / folder on \href{https://canvas.nau.edu}{canvas.nau.edu} by the deadline.
-	\item [Points:] EE499 students, this is worth 15\% of your final grade.  EE599 students, this is worth 10\% of your final grade.
-\end{description}
+\begin{lstlisting}[style=myArduino]
+void setup() {
+  // put your setup code here, to run once:
 
-\section*{Background:}
-Analysis of wearable device data isn't just about making predictions, it's also about understanding what the data reflects of real world data and how it changes with time.
+}
+\end{lstlisting}
+
+In this second section, as stated in the comments, code will run one time at start up.  This is where we will put our code that defines how pins on the General Purpose Input/Output (GPIO) will behave.  This could be setting a pin to be used as output, input, or even a communication interface.
+
+In the next section we'll put the code that will run over and over again.  This comes right after the setup() loop.
+
+\begin{lstlisting}[style=myArduino]
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+\end{lstlisting}
+
+\section{Blinking a Light Emitting Diode (LED)}
+To start with, we'll get an LED connected to the Arduino to blink.
+
+
 
 \section*{Assignment:}
 Your assignment will be to write several functions to analyze how data is clustered, changes, and how one data source can be used to predict the observations of the other. You may use Octave/MATLAB, Python, R, or any of these in Notebooks, but you must write the functions to compute and perform the statistics outlined below from scratch.  You shouldn't need any libraries beyond basics for reading CSVs.
