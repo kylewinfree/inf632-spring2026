@@ -1,18 +1,54 @@
 % Document settings
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
+\documentclass[11pt]{book}
+
+% Key Organizational Parts in the Book Format
+% \frontmatter:
+% This command is used to generate the initial section of the book that typically contains the title page, dedication, preface, and acknowledgments. It formats the page numbering in Roman numerals.
+% \mainmatter:
+% This command marks the beginning of the main content of the book. Page numbering switches to Arabic numerals here. This is where your chapters and sections are defined.
+% \backmatter:
+% This command indicates the concluding section of the book. It usually includes the index, glossary, bibliography, and any appendices. Page numbering will continue in Arabic numerals.
+% \chapter:
+% This command creates a new chapter. Chapters are the highest-level division in the book class and start on a new page.
+% \section:
+% This command creates a new section within a chapter. Sections help organize content within a chapter.
+% \subsection:
+% This command creates a subsection within a section, further dividing the content for clarity.
+% \subsubsection:
+% This command creates a subsubsection within a subsection for even finer divisions of content.
+% \paragraph:
+% This command creates a paragraph heading, which is a smaller division within a section or subsection. It does not start a new line by default.
+% \subparagraph:
+% This creates an even smaller division within a paragraph. Like \paragraph, it does not start a new line by default.
+
+\usepackage[letterpaper,landscape,margin=.25in,inner=.75in,outer=2in]{geometry}
 \usepackage{pdflscape}
 \usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{wrapfig}
 \usepackage{multirow}
 \usepackage{setspace}
 \usepackage{hyperref}
 \usepackage{xurl}
 \usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{marginnote}
 \pagestyle{plain}
+
+\setlength{\parskip}{10pt}
 \setlength\parindent{0pt}
 
 \usepackage{listings}          % for creating language style
+
+% Prevent lstlisting from breaking between pages
+\lstset{
+    breaklines=true,                  % Allow line breaks within long lines
+    keepspaces=true,                  % Keep spaces in listings
+    prebreak=\mbox{\textbackslash},   % Add a marker for the line breakpoint
+    escapeinside={(*@}{@*)},          % Control escape inside code
+}
+
 \input{ArduinoLatexListing/arduinoLanguage.tex}    % adds the arduino language listing
 
 %% Define an Arduino style fore use later %%
@@ -24,82 +60,194 @@
   morekeywords=[3]{SD, File},          % [3] -> bold orange
   morekeywords=[4]{open, exists},      % [4] -> orange
   %% The lines below add a nifty box around the code %%
-  frame=shadowbox,
-  rulesepcolor=\color{arduinoBlue},
+  frame=single, % or shadow, none, double
+  %rulesepcolor=\color{arduinoBlue},
 }
 
-\Huge Getting Going in Arduino
-\normalsize ~
+% Set global styles for tcolorbox
+\newtcolorbox{sticky}[2][]{
+  colback=yellow!25,                     % Background color
+  colframe=yellow!50,                    % Frame color
+  rounded corners=all,                    % Rounded corners
+  boxrule=1mm,                           % Border thickness
+  title={\textcolor{red}{#2}},          % Title color set 
+  fonttitle=\bfseries,                    % Title font style
+  before skip=10pt,                      % Space before the box
+  after skip=10pt,                       % Space after the box
+  #1                                      % Additional options
+}
 
-\noindent\rule{\textwidth}{1pt}\vspace{.5em}
+\begin{document}
 
+% \Huge Getting Going in Arduino
+% \normalsize ~
+
+% \noindent\rule{\textwidth}{1pt}\vspace{.5em}
+
+\chapter{Hardware}
+The Arduino platform is a flexible, relatively easy to learn, microprocessor capable of sensing, communication, and control.  There are many different versions of the Arduino, but we will focus on the two most common and fitting versions for this class.  These are shown in Figure~\ref{fig:arduinos}.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/uno.jpg} % https://store-usa.arduino.cc/cdn/shop/files/A000066_03.front_1000x750.jpg?v=1727102657
+        \caption{Arduino Uno R3, the most popular Arduino hardware.}
+        \label{fig:uno}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/nano.jpg} % https://store.arduino.cc/cdn/shop/files/A000005_03.front_1000x750.jpg?v=1753434497
+        \caption{Arduino Nano, a much smaller format.} % (MKR instead?)
+        \label{fig:nano}
+    \end{subfigure}
+    \caption{Arduino Hardware, which is constanly evolving.  These two versions are likely to be continue to be available in some format in the near future.}\label{fig:arduinos}
+\end{figure}
+
+You can think of the Arduino is a super simple computer, yet it's still different from the computer you probably use on a daily basis.  The Arduino has a set of general purpose input and output pins (GPIO).  This allows input and output of analog, digital, and communication protocols.  Not all pins support all function though!  See Figure~\ref{fig:arduino-pins} for details on the pins of the Uno.  Don't worry about all of the acronyms in there yet though, as we'll go through those in the next few pages here.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{figures/arduino-pins.png} % https://www.teachmemicro.com/wp-content/uploads/2017/03/arduino-pins.png
+  \caption{The Arduino Uno platform has 19 GPIO pins available for use.  However, some of these pins support secondary functions.  For example, you can see that A4 and A5 on the lower left are labeled as SDA ADC4 and SCL ADC5 respectively.  SDA and SCL are communication type pins (discussed later).  ADC are analog to digital converter pins (also discussed later).  These pins cannot be used for both of these functions simultaneously. \label{fig:arduino-pins}}
+\end{figure}
+
+\chapter{Software}
 \section{Code Outline}
-There are three major parts to Arduino code layout.  Let's start with the second section.
+There are three major parts to Arduino code layout.  Let's start with the {\em second} section.
 
+% \begin{lstlisting}[firstnumber=4,style=myArduino]
+% void setup() {
+%   // put your setup code here, to run once:
+
+% }
+% \end{lstlisting}
+
+In this second section, as stated in the comments, code will run one time at start up.  This is where we will put our code that defines how pins on the General Purpose Input/Output (GPIO) will behave.  This could be setting a pin to be used as output, input, or even a communication interface.
+
+In the {\em third} section we'll put the code that will run over and over again.  This comes right after the setup() loop.
+
+% \begin{lstlisting}[firstnumber=4,style=myArduino]
+% void setup() {
+%   // put your setup code here, to run once:
+
+% }
+
+% void loop() {
+%   // put your main code here, to run repeatedly:
+
+% }
+% \end{lstlisting}
+
+Finally, we need to declare variables that we want to be scoped globally.  What does this mean?  Any variables that we want to be able to access in the setup() and the loop().  If you're new to programming an Arduino, then it might be best to just assume that all variables should be global for now.  There are indeed cases where you will want a variable to be accessible only inside of one of these, or a different function that you might write, but that's for later...
+
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[style=myArduino]
+// put your variable declarations here.
+// and your includes.
+
 void setup() {
   // put your setup code here, to run once:
 
 }
-\end{lstlisting}
 
-In this second section, as stated in the comments, code will run one time at start up.  This is where we will put our code that defines how pins on the General Purpose Input/Output (GPIO) will behave.  This could be setting a pin to be used as output, input, or even a communication interface.
-
-In the next section we'll put the code that will run over and over again.  This comes right after the setup() loop.
-
-\begin{lstlisting}[style=myArduino]
 void loop() {
   // put your main code here, to run repeatedly:
 
 }
 \end{lstlisting}
+\end{minipage}
 
 \section{Blinking a Light Emitting Diode (LED)}
-To start with, we'll get an LED connected to the Arduino to blink.
+~
+\marginnote{
+  \begin{sticky}{What about Ohm's Law?}
+  We're going to make some assumptions for the moment, and will come back to this in~\ref{sec:ohms}.
+  \end{sticky}
+}
+To start with, we'll get an LED connected to the Arduino to blink.  Most Arduinos have a built in LED, but we're going to plug one in as a matter of practice.  As shown here, we are using a breadboard and a resistor, in addition to the LED.  However, in practice you can skip the breadboard and the resistor and connect your LED directly to the Arduino.
 
-
-
-\section*{Assignment:}
-Your assignment will be to write several functions to analyze how data is clustered, changes, and how one data source can be used to predict the observations of the other. You may use Octave/MATLAB, Python, R, or any of these in Notebooks, but you must write the functions to compute and perform the statistics outlined below from scratch.  You shouldn't need any libraries beyond basics for reading CSVs.
-
-\subsection*{Functions}
-\subsubsection*{K Means}
-kmeans for some arbitrary number of clusters. Your function should accept two variables, a data source X and number of clusters to look for k. X should be formatted as an arbitrary number of columns (dimensions of measure) and some arbitrary number of rows (records). The function should compute a single pass clustering analysis and return the clusters, with centroids calculated and point locations (records) for each cluster.
-
-\subsubsection*{K Nearest Neighbors}
-knn for an arbitrary odd number of k. Your function should accept at training set, k, and a single unclassified new data point (must have the same number of columns as your training set). This training set should be structured the same way as X above.
-
-\subsubsection*{Change Point Analysis}
-cpa (change point analysis) for a single variable time series data set. This function should calculate and return the first (dominant) change point from a vector data set of observations. You can assume that the time step between each data point is equal.
-
-\subsection*{Application of your Functions}
-Using the functions you have developed from above, and the data provided, compute the following and answer the questions posed.
-
-\subsubsection{K Means and KNN}
-Using the sample data we have been using in class, demonstrate that both your kmeans() and knn() perform as expected.
-
-\subsubsection{CPA}
-Using the dailySteps data from HW2, with the zero step days removed, identify all (up to 8) change points in the two-year daily steps. Do any of these change points make sense, relative to the time of year?
-
-\section*{Expectations and Grading Rubric:}
-Great news, you get another break from IEEE format submissions on this homework!  This time I need to see your code, with comments that make it clear what you are doing.  If you choose to complete this assignment in a Notebook (e.g. Jupyter Notebook), you can show your answers to the ``Application of your Functions'' in markdown cells after each step.  If you choose not to use a Notebook, prepare a markdown file (.md) for each or your responses to the ``Application of your Functions'' questions.
-
-Your submission will be graded as follows:
-
-\begin{landscape}
-\begin{table}
+\begin{figure}[h]
     \centering
-    \small
-    \begin{tabular}{p{.6in} c | p{2.25in} | p{2.25in} | p{2.25in}}
-        \multirow{2}{*}{Area}  	& Frac. of   	& UG: Meets		& UG:Exceeds, G:Meets   & G:Exceeds 	  \\
-                           			    & Points & Expectations  & Expectations  		& Expectations \\
-        \toprule
-        Code Requirements      	& 40\%\vspace{.25in} 			& The code takes inputs and provides outputs as specified & The code also accepts optional input and makes use of defaults. & The code can self identify characteristics that change how the calculations will be performed. \\
-        Code Clarity            & 40\%\vspace{.25in}			& Minimal comments, but sufficient to understand the basics of what is happening. & The code make good use of comments, including outlining some assumptions and where errors could happen (or how they are being handled). & The comments make reading the code so easy that one doesn't even have to know the programming language to understand the steps. \\
-        Analysis and Response   & 20\%\vspace{.25in}			& The analysis is performed correctly and the findings are accurate. & The analysis and findings are correct, and the explanation shows an understanding of what was done and why. & The analysis and findings are correct, the explanation shows depth of thought, and further analysis is suggested in detail. \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-\end{landscape}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/led-circuit.png} % https://docs.arduino.cc/built-in-examples/basics/Blink/
+        \caption{Following best practice, we should have a resistor in our circuit.}
+        \label{fig:led-circuit}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/led-circuit-lazy.jpg} % https://www.makerguides.com/how-to-blink-an-led-using-arduino-4-different-ways/
+        \caption{But we can also generally get away with being a little lazy and skipping the resistor.  More on this later!} % (MKR instead?)
+        \label{fig:nano}
+    \end{subfigure}
+    \caption{Arduino LED examples.}\label{fig:leds}
+\end{figure}
+
+
+Here's the code; let's look at what's really going on here.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=myArduino]
+void setup() {
+  pinMode(13, OUTPUT); // Set pin 13 as an output
+}
+
+void loop() {
+  digitalWrite(13, HIGH); // Turn the LED on
+  delay(1000); // Wait for one second
+  digitalWrite(13, LOW); // Turn the LED off
+  delay(1000); // Wait for one second
+}
+\end{lstlisting}
+\end{minipage}
+
+First up, we are not using any variables to store state or values.  We also are not using any special libraries, other supporting code, to do anything special.  Thus, line 1 starts with our setup() call.  Following this, we set the pin mode of GPIO pin 13 to be an output.
+
+% \begin{lstlisting}[style=myArduino]
+% void setup() {
+%   pinMode(13, OUTPUT); // Set pin 13 as an output
+% }
+% \end{lstlisting}
+\marginnote{
+  \begin{sticky}{Is there a state between ``HIGH'' and ``LOW''?}
+  Yes, but we need to save that for the section on pulse width modulation.
+  \end{sticky}
+}
+Next up, we have the loop().  These four lines turn the LED on by setting GPIO13 to ``HIGH'', pause for 1 second (1000ms), turn the LED off by setting GPIO13 to ``LOW'', pause for another 1 second, and then repeats. When we set a pin to ``HIGH'' we are setting it to ``on'', or thinking in binary, ``TRUE'' at 5 volts (assuming we are using a 5 volt Arduino).  Likewise, setting the pin to ``LOW'', which you can also think of as ``FALSE'', sets the pin to ``off''.
+
+% \begin{lstlisting}[firstnumber=5,style=myArduino]
+% void loop() {
+%   digitalWrite(13, HIGH); // Turn the LED on
+%   delay(1000); // Wait for one second
+%   digitalWrite(13, LOW); // Turn the LED off
+%   delay(1000); // Wait for one second
+% }
+% \end{lstlisting}
+
+\section{Adding a counter}
+In this course, we are using the Arduino as a platform for collecting data.  Blinking an LED isn't really collecting data, or least not unless you want to sit by the LED and count how many times it blinks before the battery running the Arduino gives up.  So let's introduce another function that is built into the Arduino, one that will let us communicate with the Arduino.
+
+For now, we have been plugging our Arduino into our computer to upload our programs, and incedentially, to power the Arduino.  With the introduction of this next function, we are assuming that is still the case.
+\marginnote{
+  \begin{sticky}{What is baud?}
+  Baud, or baud rate, is how fast we will communicate between devices.  This is bits per second.
+  \end{sticky}
+}
+
+\begin{lstlisting}[style=myArduino]
+int ledBlinks = 0;     // Create a variable to store the number of times the LED has blinked for us
+
+void setup() {
+  pinMode(13, OUTPUT); // Set pin 13 as an output
+  Serial.begin(9600);  // Define that we will be using the serial port, and 9600 baud
+}
+
+void loop() {
+  digitalWrite(13, HIGH); // Turn the LED on
+  delay(1000); // Wait for one second
+  digitalWrite(13, LOW); // Turn the LED off
+  delay(1000); // Wait for one second
+  ledBlinks = ledBlinks + 1;
+  Serial.print(ledBlinks);
+}
+\end{lstlisting}
 
 \end{document}
