@@ -32,7 +32,9 @@
 \usepackage{xurl}
 \usepackage{booktabs}
 \usepackage{tcolorbox}
-\usepackage{xcolor}
+\usepackage{listings}          % for creating language style
+\usepackage{xcolor} % For coloring
+\usepackage{textcomp} % For additional symbols
 \usepackage{marginnote}
 \pagestyle{plain}
 
@@ -41,13 +43,14 @@
 
 %\usepackage{minitoc}
 
-\usepackage{listings}          % for creating language style
+%\usepackage{boisik}
+
 
 % Prevent lstlisting from breaking between pages
 \lstset{
     breaklines=true,                  % Allow line breaks within long lines
     keepspaces=true,                  % Keep spaces in listings
-    prebreak=\mbox{\textbackslash},   % Add a marker for the line breakpoint
+    prebreak=\mbox{$\hookleftarrow$},   % Add a marker for the line breakpoint, carriagereturn
     escapeinside={(*@}{@*)},          % Control escape inside code
 }
 
@@ -64,6 +67,26 @@
   %% The lines below add a nifty box around the code %%
   frame=single, % or shadow, none, double
   %rulesepcolor=\color{arduinoBlue},
+}
+
+% Define a pseudocode style
+\lstdefinestyle{pseudocode}{
+    basicstyle=\ttfamily\small,          % Monospaced font
+    keywordstyle=\color{blue}\bfseries,  % Keywords in blue and bold
+    commentstyle=\color{green!70!black}, % Comments in green
+    stringstyle=\color{red},              % Strings in red
+    numbers=left,                        % Line numbers on the left
+    numberstyle=\ttfamily\color{gray},       % Style for line numbers
+    stepnumber=1,                        % Line number in increments of 1
+    numbersep=5pt,                       % Distance from the line numbers to the code
+    backgroundcolor=\color{white},       % Background color
+    frame=single,                        % Single frame around the code
+    rulecolor=\color{black},             % Color of the frame
+    tabsize=4,                           % Sets default tabsize to 4 spaces
+    breaklines=true,                     % Allows line breaking
+    keywords={if else while end},
+    comment=[l]{//},                    % Single-line comments start with //
+    string=[b]{''}                      % Strings enclosed in quotes
 }
 
 % Set global styles for tcolorbox
@@ -119,10 +142,11 @@ You can think of the Arduino is a super simple computer, yet it's still differen
   \caption{The Arduino Uno platform has 19 GPIO pins available for use.  However, some of these pins support secondary functions.  For example, you can see that A4 and A5 on the lower left are labeled as SDA ADC4 and SCL ADC5 respectively.  SDA and SCL are communication type pins (discussed later).  ADC are analog to digital converter pins (also discussed later).  These pins cannot be used for both of these functions simultaneously. \label{fig:arduino-pins}}
 \end{figure}
 
-\chapter{Software}
+\chapter{Coding your first few Sketches}
 %\minitoc % This will include sections of this chapter only
 
-\section{Code Outline}
+\section{Sketch Outline}
+We call Arduino programs sketches. 
 There are three major parts to Arduino code layout.  Let's start with the {\em second} section.
 
 % \begin{lstlisting}[firstnumber=4,style=myArduino]
@@ -259,6 +283,59 @@ void loop() {
   delay(1000); // Wait for one second
   ledBlinks = ledBlinks + 1;
   Serial.print(ledBlinks);
+}
+\end{lstlisting}
+\end{minipage}
+
+\section{Using the Plotter}
+The Arduino IDE has a built in data plotter.  This is especially helpful as we think about reading sensor data in realtime and debugging.  Let's modify our counter sketch to instead count up to some number, then count back down to another, then up again, and so on.  We are going to make a saw tooth function.
+
+\begin{minipage}{\linewidth}
+Saw Tooth Algorithm
+% Use the pseudocode style without line numbers
+\begin{lstlisting}[style=pseudocode]
+x = 0
+x_max = 20
+x_min = 0
+direction = 1
+while True
+  if x >= x_max
+    direction = -1
+  else if x <= x_min
+    direction = 1
+  end if
+  x = x + direction
+  print x
+end while
+\end{lstlisting}
+\end{minipage}
+
+This saw tooth algorithm should oscilate x between 0 and 20.  To translate this algorithm into Arduino code, we need to establish our variables (lines 1 so 5), setup the serial communication (lines ), and then loop through evaluating the state of x while making changes to the direction (lines ) and thus the value of x as appropriate (lines ).
+
+\marginnote{
+  \begin{sticky}{Ints}
+  Arduino Ints are made up of two bytes and can range from -32,768 to 32,767.
+  \end{sticky}
+}
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[style=myArduino]
+int x = 0;     // to store the value we want to be outputting
+int x_max = 20; // we can make this a larger number, try it after trying 20 first
+int x_min = 0; // likewise to x_max, this can be changed after you give 0 a shot
+int direction = 1; // see the note on ints
+
+void setup() {
+  // we don't really need the LED in this example, though you could use two LEDs to indicate the direction
+  Serial.begin(9600);  // 9600 baud
+}
+
+void loop() {
+  
+  
+  x = x + 1;
+  Serial.print(x);
+  delay(1000); // Wait for one second
 }
 \end{lstlisting}
 \end{minipage}
