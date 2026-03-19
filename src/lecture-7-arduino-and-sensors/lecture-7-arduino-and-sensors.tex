@@ -21,14 +21,14 @@
 % \subparagraph:
 % This creates an even smaller division within a paragraph. Like \paragraph, it does not start a new line by default.
 
-\usepackage[letterpaper,landscape,margin=.75in,inner=.75in,outer=2in]{geometry}
-\usepackage{pdflscape}
+\usepackage[letterpaper,margin=.75in,inner=.75in,outer=2in]{geometry}
+%\usepackage{pdflscape}
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{wrapfig}
 \usepackage{multirow}
 \usepackage{setspace}
-\usepackage{hyperref}
+\usepackage[bookmarks=true, colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black]{hyperref}
 \usepackage{xurl}
 \usepackage{booktabs}
 \usepackage{tcolorbox}
@@ -38,6 +38,8 @@
 
 \setlength{\parskip}{10pt}
 \setlength\parindent{0pt}
+
+%\usepackage{minitoc}
 
 \usepackage{listings}          % for creating language style
 
@@ -78,6 +80,9 @@
 }
 
 \begin{document}
+\tableofcontents
+
+%\dominitoc % To create the mini table of contents
 
 % \Huge Getting Going in Arduino
 % \normalsize ~
@@ -85,6 +90,10 @@
 % \noindent\rule{\textwidth}{1pt}\vspace{.5em}
 
 \chapter{Hardware}
+%\minitoc
+
+\section{Arduino}
+
 The Arduino platform is a flexible, relatively easy to learn, microprocessor capable of sensing, communication, and control.  There are many different versions of the Arduino, but we will focus on the two most common and fitting versions for this class.  These are shown in Figure~\ref{fig:arduinos}.
 
 \begin{figure}[h]
@@ -111,6 +120,8 @@ You can think of the Arduino is a super simple computer, yet it's still differen
 \end{figure}
 
 \chapter{Software}
+%\minitoc % This will include sections of this chapter only
+
 \section{Code Outline}
 There are three major parts to Arduino code layout.  Let's start with the {\em second} section.
 
@@ -176,7 +187,7 @@ To start with, we'll get an LED connected to the Arduino to blink.  Most Arduino
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{figures/led-circuit-lazy.jpg} % https://www.makerguides.com/how-to-blink-an-led-using-arduino-4-different-ways/
         \caption{But we can also generally get away with being a little lazy and skipping the resistor.  More on this later!} % (MKR instead?)
-        \label{fig:nano}
+        \label{fig:led-circuit-lazy}
     \end{subfigure}
     \caption{Arduino LED examples.}\label{fig:leds}
 \end{figure}
