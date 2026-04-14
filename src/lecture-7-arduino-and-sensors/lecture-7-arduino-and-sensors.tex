@@ -73,8 +73,13 @@
 \lstdefinestyle{pseudocode}{
     basicstyle=\ttfamily\small,          % Monospaced font
     keywordstyle=\color{blue}\bfseries,  % Keywords in blue and bold
+    keywords={if, else, while, end, print},
+    keywordstyle=[2]\color{green!50!black}\bfseries,
+    keywords=[2]{=, True},
     commentstyle=\color{green!70!black}, % Comments in green
+    comment=[l]{//},                    % Single-line comments start with //
     stringstyle=\color{red},              % Strings in red
+    string=[b]{''}                      % Strings enclosed in quotes
     numbers=left,                        % Line numbers on the left
     numberstyle=\ttfamily\color{gray},       % Style for line numbers
     stepnumber=1,                        % Line number in increments of 1
@@ -83,10 +88,7 @@
     frame=single,                        % Single frame around the code
     rulecolor=\color{black},             % Color of the frame
     tabsize=4,                           % Sets default tabsize to 4 spaces
-    breaklines=true,                     % Allows line breaking
-    keywords={if else while end},
-    comment=[l]{//},                    % Single-line comments start with //
-    string=[b]{''}                      % Strings enclosed in quotes
+    breaklines=true                     % Allows line breaking
 }
 
 % Set global styles for tcolorbox
@@ -96,7 +98,8 @@
   rounded corners=all,                    % Rounded corners
   boxrule=1mm,                           % Border thickness
   title={\textcolor{blue}{#2}},          % Title color set 
-  fonttitle=\bfseries,                    % Title font style
+  fonttitle=\bfseries\scriptsize,        % Title font style
+  fontupper=\footnotesize,               % Content font size
   before skip=10pt,                      % Space before the box
   after skip=10pt,                       % Space after the box
   #1                                      % Additional options
@@ -191,11 +194,12 @@ void loop() {
 \end{lstlisting}
 \end{minipage}
 
-\section{Blinking a Light Emitting Diode (LED)}
+\section{Output}
+\subsection{Blinking a Light Emitting Diode (LED)}
 ~
 \marginnote{
   \begin{sticky}{What about Ohm's Law?}
-  We're going to make some assumptions for the moment, and will come back to this in~\ref{sec:ohms}.
+  {We're going to make some assumptions for the moment, and will come back to this in~\ref{sec:ohms}.}
   \end{sticky}
 }
 To start with, we'll get an LED connected to the Arduino to blink.  Most Arduinos have a built in LED, but we're going to plug one in as a matter of practice.  As shown here, we are using a breadboard and a resistor, in addition to the LED.  However, in practice you can skip the breadboard and the resistor and connect your LED directly to the Arduino.
@@ -257,7 +261,7 @@ Next up, we have the loop().  These four lines turn the LED on by setting GPIO13
 % }
 % \end{lstlisting}
 
-\section{Adding a counter}
+\subsection{Adding a counter}
 In this course, we are using the Arduino as a platform for collecting data.  Blinking an LED isn't really collecting data, or least not unless you want to sit by the LED and count how many times it blinks before the battery running the Arduino gives up.  So let's introduce another function that is built into the Arduino, one that will let us communicate with the Arduino.
 
 For now, we have been plugging our Arduino into our computer to upload our programs, and incedentially, to power the Arduino.  With the introduction of this next function, we are assuming that is still the case.
@@ -287,7 +291,7 @@ void loop() {
 \end{lstlisting}
 \end{minipage}
 
-\section{Using the Plotter}
+\subsection{Using the Plotter}
 The Arduino IDE has a built in data plotter.  This is especially helpful as we think about reading sensor data in realtime and debugging.  Let's modify our counter sketch to instead count up to some number, then count back down to another, then up again, and so on.  We are going to make a saw tooth function.
 
 \begin{minipage}{\linewidth}
@@ -331,13 +335,57 @@ void setup() {
 }
 
 void loop() {
-  
-  
-  x = x + 1;
+  if x >= x_max {
+    direction = -1;
+  } else {
+    direction = 1;
+  }
+  x = x + direction;
   Serial.print(x);
-  delay(1000); // Wait for one second
+  delay(500); // Wait for half a second
 }
 \end{lstlisting}
 \end{minipage}
+
+Then show an image of the plotter in action.
+
+\section{Input}
+\subsection{Test for Echo}
+take some input, and echo that back
+
+\subsection{Calculator}
+take two single digit inputs, and do addition
+
+\subsection{Change Parameters}
+take input and make things behave differently
+
+restart and the defaults
+
+\subsection{Sensors}
+maybe start with a digital sensor, like an accelerometer?
+
+then introduce analog in the next chapter?
+
+\chapter{Analog Sensing}
+Most all sensors are, at heart, analog in some way.  May of them, such as the accelerometer we used in the previous chapter, have an analog to digital converter built in.  But not all do.  Before we can discuss analog sensors in great detail, we need to cover some basic electrical engineering basics.
+
+\section{Theory of Ohm's Law}
+\label{sec:ohms}
+overview of ohms law
+
+\section{Ohm's Law Applied}
+then into resistor potentiometers, and resistor networks
+\subsection{Potentimeters}
+
+\subsection{Resistor Networks}
+
+with how to read resistors
+
+\subsection{Variable Restistance Sensors}
+such as flex sensors, force sensors, light sensors, etc
+
+\chapter{Keeping Time}
+
+\chapter{Saving the Data}
 
 \end{document}
