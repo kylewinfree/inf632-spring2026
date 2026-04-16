@@ -16,6 +16,7 @@ directories=(
     "lecture-5-agreements-correlations-regression"
     "lecture-6-cpa"
     "lecture-9-interpreting-results"
+    "lecture-10-the-discussion"
     "research-project"
     "week-1-discussion"
     "week-2-discussion"
