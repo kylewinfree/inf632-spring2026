@@ -22,6 +22,7 @@ directories=(
     "week-2-discussion"
     "week-3-discussion"
     "week-14-discussion"
+    "week-15-presentation-tips"
 )
 
 # Let's instead just add all directories, assuming that there is a latex file in each
